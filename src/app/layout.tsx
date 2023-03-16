@@ -1,4 +1,7 @@
+import Navbar from '@/components/sections/Navbar'
 import './globals.css'
+import SocialMedia from '@/components/others/SocialMedia'
+import FixedPageLocation from '@/components/others/FixedPageLocation'
 
 export const metadata = {
   title: 'Create Next App',
@@ -12,7 +15,16 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body
+      className='
+      xl:px-[128px]
+      px-[64px]
+      '>
+        <FixedPageLocation/>
+        <SocialMedia/>
+        <Navbar/>
+        {children}
+      </body>
     </html>
   )
 }
