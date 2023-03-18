@@ -14,24 +14,50 @@ const Quote : React.FC<props> = ({
     className='
     w-full
     flex
-    py-6
+    py-8
     items-center
     justify-center
-    bg-neutral-100
     '>
         <div
         className='
-        flex
-        flex-col
-        gap-3
-        items-start
-        text-neutral-800
-        max-w-[350px]
+        relative
         '>
-            <p>
-                {quote}
-            </p>
-            <span>- {by}</span>
+            <div
+            className='
+            relative
+            z-[1]
+            p-4
+            flex
+            flex-col
+            gap-4
+            items-start
+            bg-neutral-700
+            text-white
+            max-w-[min(350px,80vw)]
+            '>
+                <p>
+                    {quote}
+                </p>
+                <span>- {by}</span>
+            </div>
+
+            <div
+            className='
+            z-[0]
+            absolute
+            bottom-[-6px]
+            right-[-6px]
+            w-full
+            h-full
+            p-4
+            flex
+            flex-col
+            gap-4
+            items-start
+            bg-neutral-800
+            text-white
+            max-w-[min(350px,80vw)]
+            '/>
         </div>
     </div>
   )

@@ -1,8 +1,11 @@
+"use client"
+
 import Crown from '@/svg/Crown'
 import React from 'react'
 import CallToAction from '../buttons/CallToAction'
+import JSButton from '../others/JSButton'
 
-const FirstPage = () => {
+const Introduction = () => {
   return (
     <section
     className={`
@@ -21,14 +24,18 @@ const FirstPage = () => {
         '>
             <h1
             className={`
+            max-w-[500px]
             xl:text-[64px]
-            text-[56px]
+            sm:text-[56px]
+            text-[44px]
             font-bold
             text-neutral-800
+            flex
+            flex-wrap
             `}>
-                Hi I'm <span className='text-violet-500'>MmD</span><br/>
-                a self-taught<br/>
-                developer
+                Hi I'm <span className='text-violet-500'>MmD</span>
+                a self-taught
+                <JSButton/> developer
             </h1>
 
             <p>
@@ -76,7 +83,7 @@ const FirstPage = () => {
           absolute
           bottom-[5%]
           left-[5%]
-          w-[3vw]
+          w-[10%]
           aspect-square
           '
           color="fill-violet-600"
@@ -88,7 +95,7 @@ const FirstPage = () => {
           absolute
           top-[15%]
           left-[5%]
-          w-[5vw]
+          w-[15%]
           aspect-square
           '
           color="fill-yellow-600"
@@ -99,4 +106,4 @@ const FirstPage = () => {
   )
 }
 
-export default FirstPage
+export default Introduction

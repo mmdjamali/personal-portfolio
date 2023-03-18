@@ -18,7 +18,8 @@ export default function RootLayout({
       <body
       className='
       xl:px-[128px]
-      px-[64px]
+      sm:px-[64px]
+      px-[32px]
       '>
         <FixedPageLocation/>
         <SocialMedia/>

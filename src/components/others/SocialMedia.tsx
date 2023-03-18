@@ -56,3 +56,4 @@ const platform = [
         Icon : FaTelegramPlane
     },
 ]
+

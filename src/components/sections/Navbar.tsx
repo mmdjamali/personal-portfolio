@@ -1,6 +1,9 @@
+"use client"
+
 import Crown from '@/svg/Crown'
 import Link from 'next/link'
 import React from 'react'
+import { motion } from 'framer-motion';
 
 const Navbar = () => {
   return (
@@ -15,7 +18,18 @@ const Navbar = () => {
     justify-between
     py-3
     `}>
-        <div>
+        
+        <motion.div
+        className=''
+        initial={{
+            y : -60,
+            opacity : 0
+        }}
+        animate={{
+            y : 0,
+            opacity : 1
+        }}
+        >
             <Crown
             className='
             w-[30px]
@@ -24,7 +38,7 @@ const Navbar = () => {
             color="fill-neutral-800"
             backdropColor="fill-neutral-900"
             />
-        </div>
+        </motion.div>
 
         <div
         className='
@@ -35,11 +49,25 @@ const Navbar = () => {
         text-neutral-800
         '>
             {sections.map((item, idx) => 
-                <Link
-                key={idx} 
-                href={`#` + item.toLocaleLowerCase()}>
-                    {item}
-                </Link>
+                <motion.div
+                transition={{
+                    delay : ((idx + 1) * .05)
+                }}
+                initial={{
+                    y : -60,
+                    opacity : 0
+                }}
+                animate={{
+                    y : 0,
+                    opacity : 1
+                }}
+                >
+                    <Link
+                    key={idx} 
+                    href={`#` + item.toLocaleLowerCase()}>
+                        {item}
+                    </Link>
+                </motion.div>
             )}
         </div>
     </nav>
@@ -52,5 +80,4 @@ const sections = [
     "Home",
     "About",
     "Projects",
-    "Expertise"
 ]
