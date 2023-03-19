@@ -1,10 +1,37 @@
+"use client"
+
 import Crown from '@/svg/Crown'
 import Question from '@/svg/Question'
-import React from 'react'
+import React , { useRef , useCallback } from 'react'
 
-const AboutMe = () => {
+type props = {
+  changeCurrent : (value : string) => void
+}
+
+const AboutMe : React.FC<props> = ({
+  changeCurrent
+}) => {
+  const observer = useRef<IntersectionObserver | null>(null)
+  
+  const handle =  useCallback((node : HTMLElement) => {
+
+    if(observer.current) observer.current.disconnect()
+    
+    observer.current = new IntersectionObserver(entries => {
+      if(entries[0].isIntersecting){
+        changeCurrent && changeCurrent("About me")
+      }
+    },{
+      rootMargin:"-200px"
+    })
+
+    if(node) observer.current.observe(node)
+
+  },[])
+
   return (
     <section
+    ref={handle}
     className={`
     flex
     lg:flex-row

@@ -11,7 +11,11 @@
                 "tr" : ""
             },
             "technologies" : ["react", "vite", "supabase","tailwind"],
-            "image" : "/images/Bavard.png"
+            "image" : "/images/Bavard.png",
+            "color" : {
+                "backdrop" : "bg-violet-600",
+                "background" : "bg-violet-500"
+            }
         }
     ],
     "content" : {

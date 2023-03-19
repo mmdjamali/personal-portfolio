@@ -1,10 +1,36 @@
 import json from "../../content/projects.json"
+import { techLists } from "@/assets/TechIcons"
+import React , { useRef , useCallback } from 'react'
+import { IoIosArrowForward } from "react-icons/io"
 
-import React from 'react'
+type props = {
+  changeCurrent : (value : string) => void
+}
 
-function Projects() {
+const Projects : React.FC<props> = ({
+  changeCurrent
+}) => {
+  const observer = useRef<IntersectionObserver | null>(null)
+  
+  const handle =  useCallback((node : HTMLElement) => {
+
+    if(observer.current) observer.current.disconnect()
+    
+    observer.current = new IntersectionObserver(entries => {
+      if(entries[0].isIntersecting){
+        changeCurrent && changeCurrent("Projects")
+      }
+    },{
+      rootMargin: node.offsetHeight / 2 + "px"
+    })
+
+    if(node) observer.current.observe(node)
+
+  },[])
+
   return (
-    <div
+    <section
+    ref={handle}
     className={`
     flex
     flex-col
@@ -15,7 +41,7 @@ function Projects() {
       className="
       flex
       flex-wrap
-      gap-1
+      gap-2
       text-[40px]
       font-bold
       text-neutral-800
@@ -30,6 +56,7 @@ function Projects() {
           )
         })}
       </h2>
+
       {
         json.projects.map(({
           name , 
@@ -41,12 +68,12 @@ function Projects() {
             <div
             key={idx}
             className={`
+            ${idx % 2 === 0 ? "lg:flex-row-reverse" : "lg:flex-row"}
             flex
             flex-col
-            lg:flex-row
             items-center
             justify-between
-            gap-4
+            gap-8
             `}>
 
               <div
@@ -74,12 +101,18 @@ function Projects() {
                 gap-2
                 font-medium
                 ">
-                  {technologies.map((item , idx) => {
+                  {technologies.map((item : string , idx) => {
+                    let { color , Icon } = techLists[item];
+                    
                     return(
                       <span
+                      className={`
+                      ${color}
+                      text-[1.5rem]
+                      `}
                       key={idx}
                       >
-                        {item}
+                        <Icon/>
                       </span>
                     )
                   })}
@@ -90,9 +123,29 @@ function Projects() {
                 flex
                 gap-2
                 ">
-                  <button>
-                    demo
-                  </button>
+                  <a
+                  className="
+                  after:transition-all
+                  relative
+                  flex
+                  gap-1
+                  w-fit
+                  cursor-pointer
+                  items-center
+                  justify-center
+                  after:content-['']
+                  after:w-full
+                  after:max-w-[0px]
+                  hover:after:max-w-full
+                  after:h-[2px]
+                  after:bg-neutral-800
+                  after:absolute
+                  after:bottom-0
+                  after:left-0
+                  ">
+                    <span>demo</span>
+                    <IoIosArrowForward/>
+                  </a>
                 </div>
 
               </div>
@@ -115,6 +168,8 @@ function Projects() {
                   className={`
                   relative
                   w-[100%]
+                  aspect-video
+                  object-cover
                   `}
                   src={image}
                   alt={name["en"]}
@@ -139,7 +194,8 @@ function Projects() {
           )
         })
       }
-    </div>
+
+    </section>
   )
 }
 

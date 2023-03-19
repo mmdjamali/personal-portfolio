@@ -1,13 +1,39 @@
 "use client"
 
 import Crown from '@/svg/Crown'
-import React from 'react'
+import React , { useRef , useCallback } from 'react'
 import CallToAction from '../buttons/CallToAction'
-import JSButton from '../others/JSButton'
+import JSButton from '../buttons/JSButton'
 
-const Introduction = () => {
+type props = {
+  changeCurrent : (value : string) => void
+}
+
+const Introduction : React.FC<props> = ({
+  changeCurrent
+}) => {
+
+  const observer = useRef<IntersectionObserver | null>(null)
+  
+  const handle =  useCallback((node : HTMLElement) => {
+
+    if(observer.current) observer.current.disconnect()
+    
+    observer.current = new IntersectionObserver(entries => {
+      if(entries[0].isIntersecting){
+        changeCurrent && changeCurrent("Home")
+      }
+    },{
+      rootMargin:"-200px"
+    })
+
+    if(node) observer.current.observe(node)
+
+  },[])
+
   return (
     <section
+    ref={handle}
     className={`
     flex
     lg:flex-row

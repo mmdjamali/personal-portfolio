@@ -1,6 +1,12 @@
 import React from 'react'
 
-const FixedPageLocation = () => {
+type props = {
+  current : string
+}
+
+const FixedPageLocation : React.FC<props> = ({
+  current
+}) => {
   return (
     <div
     className={`
@@ -17,7 +23,7 @@ const FixedPageLocation = () => {
     hidden
     sm:flex
     `}>
-        {"home".split("").map((latter , idx) =>
+        {current.split("").map((latter , idx) =>
             <span
             className={`
             uppercase

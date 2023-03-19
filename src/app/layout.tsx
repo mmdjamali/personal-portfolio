@@ -21,7 +21,6 @@ export default function RootLayout({
       sm:px-[64px]
       px-[32px]
       '>
-        <FixedPageLocation/>
         <SocialMedia/>
         <Navbar/>
         {children}
