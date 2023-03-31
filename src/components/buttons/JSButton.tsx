@@ -20,12 +20,12 @@ const JSButton : React.FC<props> = ({
             <div
             className="
             select-none
-            h-[60px]
+            sm:h-[60px]
+            h-[52px]
             flex
             items-end
             relative
             cursor-pointer
-            mr-4
             "> 
                 <div
                 onClick={() => {
@@ -36,18 +36,20 @@ const JSButton : React.FC<props> = ({
                 z-[5]
                 w-[150px]
                 h-fit
-                px-4
+                px-5
+                py-2.5
                 -translate-x-[3px]
                 -translate-y-[3px]
                 active:translate-x-0
                 active:translate-y-0
-                rounded-full
                 text-white
                 font-bold
                 flex
+                leading-none
                 ${isJS ? "justify-end bg-yellow-400" : "justify-start bg-blue-500"}
                 
-                text-[2.5rem]
+                sm:text-[2.5rem]
+                text-[2rem]
                 `}>
                     <motion.div layout>{ isJS ? "JS" : "TS" }</motion.div>
                 </div> 
@@ -60,7 +62,6 @@ const JSButton : React.FC<props> = ({
                 right-0
                 w-full
                 h-full
-                rounded-full
                 ${isJS ? "bg-yellow-500" : "bg-blue-600"}
                 `}
                 />

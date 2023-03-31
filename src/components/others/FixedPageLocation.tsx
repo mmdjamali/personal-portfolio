@@ -1,5 +1,5 @@
 import React from 'react'
-
+import { motion } from "framer-motion"
 type props = {
   current : string
 }
@@ -24,7 +24,22 @@ const FixedPageLocation : React.FC<props> = ({
     sm:flex
     `}>
         {current.split("").map((latter , idx) =>
-            <span
+            <motion.div
+            key={latter + Math.random()}
+            transition={{
+              delay : ((idx + 1) * .05)
+            }}
+            initial={{
+              y : -60,
+              opacity : 0,
+              display : "none"
+            }}
+            
+            animate={{
+              y : 0,
+              opacity : 1,
+              display: "inline-block"
+            }}
             className={`
             uppercase
             text-neutral-800
@@ -32,7 +47,7 @@ const FixedPageLocation : React.FC<props> = ({
             font-semibold
             `}>
                 {latter}
-            </span>
+            </motion.div>
         )}
 
         <span

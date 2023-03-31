@@ -21,7 +21,7 @@ const Projects : React.FC<props> = ({
         changeCurrent && changeCurrent("Projects")
       }
     },{
-      rootMargin: node.offsetHeight / 2 + "px"
+      rootMargin: (node.offsetHeight / 2) * -1 + "px"
     })
 
     if(node) observer.current.observe(node)

@@ -33,7 +33,6 @@ const CallToAction : React.FC<props> = ({
         text-[20px]
         px-8
         py-2
-        rounded-full
         `}>
             {children}
         </button>
@@ -48,7 +47,6 @@ const CallToAction : React.FC<props> = ({
         bg-neutral-900
         border-[2px]
         border-neutral-900
-        rounded-full
         bottom-0
         left-0
         '

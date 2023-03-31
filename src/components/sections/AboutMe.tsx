@@ -22,7 +22,7 @@ const AboutMe : React.FC<props> = ({
         changeCurrent && changeCurrent("About me")
       }
     },{
-      rootMargin:"-200px"
+      rootMargin: (node.offsetHeight / 2) * -1 + "px"
     })
 
     if(node) observer.current.observe(node)

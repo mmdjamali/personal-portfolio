@@ -18,8 +18,9 @@ export default function RootLayout({
       <body
       className='
       xl:px-[128px]
-      sm:px-[64px]
-      px-[32px]
+      md:px-[98px]
+      sm:px-[32px]
+      px-[16px]
       '>
         <SocialMedia/>
         <Navbar/>

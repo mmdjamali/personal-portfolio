@@ -11,7 +11,7 @@ import Footer from '@/components/sections/Footer'
 import { useEffect, useState } from 'react'
 
 export default function Home() {
-  const [currentSection , setCurrentSection] = useState("")
+  const [currentSection , setCurrentSection] = useState("Home")
 
   const handleChange = (value : string) => {
     setCurrentSection(value)

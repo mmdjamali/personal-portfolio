@@ -21,10 +21,11 @@ const Introduction : React.FC<props> = ({
     
     observer.current = new IntersectionObserver(entries => {
       if(entries[0].isIntersecting){
+        console.log("hey")
         changeCurrent && changeCurrent("Home")
       }
     },{
-      rootMargin:"-200px"
+      rootMargin: (node.offsetHeight / 4) * -1 + "px"
     })
 
     if(node) observer.current.observe(node)
@@ -53,15 +54,43 @@ const Introduction : React.FC<props> = ({
             max-w-[500px]
             xl:text-[64px]
             sm:text-[56px]
-            text-[44px]
+            text-[40px]
             font-bold
             text-neutral-800
-            flex
+            flex 
             flex-wrap
             `}>
-                Hi I'm <span className='text-violet-500'>MmD</span>
+              {
+                ["Hi I'm MmD","a self taught", "JS developer"].map((item , idx) => {  
+                  return (
+                    <div
+                    className='
+                    w-full
+                    flex
+                    flex-wrap
+                    gap-x-3
+                    '>
+                      {
+                        item.split(" ").map((text,i) => {
+                          if(text === "JS") return(
+                            <JSButton/>
+                          )
+                          return(
+                            <span
+                            className={text === "MmD" ? "text-violet-500" : ""}>
+                              {text}
+                            </span>
+                          )
+                        })
+                      }
+                  </div>
+                  )
+                  
+                })
+              }
+                {/* Hi I'm <span className='text-violet-500'>MmD</span>
                 a self-taught
-                <JSButton/> developer
+                <JSButton/> developer */}
             </h1>
 
             <p>
