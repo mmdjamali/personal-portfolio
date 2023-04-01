@@ -2,10 +2,43 @@
 
 import Crown from '@/svg/Crown'
 import Link from 'next/link'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { motion } from 'framer-motion';
 
 const Navbar = () => {
+    const [show, setShow] = useState<boolean>(true)
+    
+    useEffect(() => {
+        let lastY : number = 0;
+
+        document.onscroll = (e) => {
+            // get the scrollY position
+            let { scrollY } = window;
+
+            // if navbar is hidden keep track of scrollY
+            if(!show) {
+                lastY = scrollY
+            }
+
+            // hide the navbar if it's visible and user scrolled down
+            if(window.scrollY > lastY + 100){
+                setShow(false)
+                lastY = scrollY
+            }
+            // show the navbar if it's hidden and user scrolled up
+            if(window.scrollY < lastY - 100){
+                setShow(true)
+                lastY = scrollY
+            }
+
+
+        }
+    },[])
+
+    
+
+  if(!show) return <></>
+
   return (
     <nav
     className={`

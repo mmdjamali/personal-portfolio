@@ -4,7 +4,7 @@ import Crown from '@/svg/Crown'
 import React , { useRef , useCallback } from 'react'
 import CallToAction from '../buttons/CallToAction'
 import JSButton from '../buttons/JSButton'
-
+import { motion } from "framer-motion"
 type props = {
   changeCurrent : (value : string) => void
 }
@@ -21,11 +21,10 @@ const Introduction : React.FC<props> = ({
     
     observer.current = new IntersectionObserver(entries => {
       if(entries[0].isIntersecting){
-        console.log("hey")
         changeCurrent && changeCurrent("Home")
       }
     },{
-      rootMargin: (node.offsetHeight / 4) * -1 + "px"
+      rootMargin:(node.offsetHeight / 3) * -1 + "px 0px"
     })
 
     if(node) observer.current.observe(node)
@@ -63,12 +62,23 @@ const Introduction : React.FC<props> = ({
               {
                 ["Hi I'm MmD","a self taught", "JS developer"].map((item , idx) => {  
                   return (
-                    <div
+                    <motion.div
+                    transition={{
+                      delay : ((idx + 1) * .1) + .4
+                    }}
+                    initial={{
+                      y : -60,
+                      opacity : 0
+                    }}
+                    animate={{
+                      y : 0,
+                      opacity : 1
+                    }}
                     className='
                     w-full
                     flex
                     flex-wrap
-                    gap-x-3
+                    gap-x-2
                     '>
                       {
                         item.split(" ").map((text,i) => {
@@ -83,18 +93,46 @@ const Introduction : React.FC<props> = ({
                           )
                         })
                       }
-                  </div>
+                    </motion.div>
                   )
                   
                 })
               }
-                {/* Hi I'm <span className='text-violet-500'>MmD</span>
-                a self-taught
-                <JSButton/> developer */}
             </h1>
 
-            <p>
-            Let me help take your startup's ideas to life with engaging and interactive frontend development.
+            <p
+            className='
+            text-neutral-800
+            flex
+            flex-wrap
+            gap-x-1
+            '>
+            {"Let me help take your startup's ideas to life with engaging and interactive frontend development."
+            .split(" ")
+            .map((word , idx) => {
+              return(
+                <motion.span
+                key={word + idx}
+                transition={{
+                  delay : ((idx + 1) * .05) + 1
+                }}
+                initial={{
+                  y : -30,
+                  opacity : 0,
+                }}
+                whileInView={{
+                  y : 0,
+                  opacity : 1
+                }}
+                viewport={{
+                  once : true
+                }}
+                >
+                  {word}
+                </motion.span>
+              )
+            })
+            }
             </p>
 
             <div
@@ -104,18 +142,51 @@ const Introduction : React.FC<props> = ({
             flex-wrap
             gap-4
             '>
-
-              <CallToAction
-              secondary={false}
+              <motion.div
+              transition={{
+                delay : 2
+              }}
+              initial={{
+                y : -30,
+                opacity : 0,
+              }}
+              whileInView={{
+                y : 0,
+                opacity : 1
+              }}
+              viewport={{
+                once : true
+              }}
               >
-                Hire me
-              </CallToAction>
+                <CallToAction
+                secondary={false}
+                >
+                  Hire me
+                </CallToAction>
+              </motion.div>
 
-              <CallToAction
-              secondary
+              <motion.div
+              transition={{
+                delay : 2.5
+              }}
+              initial={{
+                y : -30,
+                opacity : 0,
+              }}
+              whileInView={{
+                y : 0,
+                opacity : 1
+              }}
+              viewport={{
+                once : true
+              }}
               >
-                Download CV
-              </CallToAction>
+                <CallToAction
+                secondary
+                >
+                  Download CV
+                </CallToAction>
+              </motion.div>
             </div>
         </div>
 
@@ -123,39 +194,82 @@ const Introduction : React.FC<props> = ({
         className='
         relative
         '>
-          <Crown
-          className='
-          w-[50vw]
-          lg:w-[30vw]
-          aspect-square
-          '
-          color="fill-neutral-900"
-          backdropColor="fill-neutral-800"
-          />
+          <motion.span
+          initial={{
+            opacity : 0,
+          }}
+          whileInView={{
+            opacity : 1,
+          }}
+          viewport={{
+            once : true
+          }}
+          >
+            <Crown
+            className='
+            w-[50vw]
+            lg:w-[30vw]
+            aspect-square
+            '
+            color="fill-neutral-900"
+            backdropColor="fill-neutral-800"
+            />
+          </motion.span>
 
-          <Crown
+          <motion.span
+          initial={{
+            bottom : "50%",
+            left : "50%",
+            opacity : 0
+          }}
+          whileInView={{
+            bottom : "5%",
+            left : "5%",
+            opacity : 1
+          }}
+          viewport={{
+            once : true
+          }}
+          className={`
+          absolute
+          `}>
+            <Crown
+            className='
+            w-[10%]
+            aspect-square
+            '
+            color="fill-violet-600"
+            backdropColor="fill-violet-500"
+            />
+          </motion.span>
+
+          <motion.span
           className='
           absolute
-          bottom-[5%]
-          left-[5%]
-          w-[10%]
-          aspect-square
           '
-          color="fill-violet-600"
-          backdropColor="fill-violet-500"
-          />
-
-          <Crown
-          className='
-          absolute
-          top-[15%]
-          left-[5%]
-          w-[15%]
-          aspect-square
-          '
-          color="fill-yellow-600"
-          backdropColor="fill-yellow-400"
-          />
+          initial={{
+            top : "50%",
+            left : "50%",
+            opacity : 0
+          }}
+          whileInView={{
+            top : "15%",
+            left : "5%",
+            opacity : 1
+          }}
+          viewport={{
+            once : true
+          }}
+          >
+            <Crown
+            className='
+            w-[15%]
+            aspect-square
+            '
+            color="fill-yellow-600"
+            backdropColor="fill-yellow-400"
+            />
+          </motion.span>
         </div>
     </section>
   )

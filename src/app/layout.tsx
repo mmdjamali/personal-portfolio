@@ -1,4 +1,7 @@
+"use client"
+
 import Navbar from '@/components/sections/Navbar'
+import { useState , useEffect } from "react"
 import './globals.css'
 import SocialMedia from '@/components/others/SocialMedia'
 import FixedPageLocation from '@/components/others/FixedPageLocation'
@@ -13,6 +16,14 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false)
+    },1000)
+  }, [])
+  
   return (
     <html lang="en">
       <body
@@ -22,9 +33,18 @@ export default function RootLayout({
       sm:px-[32px]
       px-[16px]
       '>
-        <SocialMedia/>
-        <Navbar/>
-        {children}
+        {
+          loading ?
+          <div>
+            loading...
+          </div>
+          :
+          <>
+          <SocialMedia/>
+          <Navbar/>
+          {children}
+          </>
+        }
       </body>
     </html>
   )

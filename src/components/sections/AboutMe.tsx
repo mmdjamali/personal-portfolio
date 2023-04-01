@@ -3,6 +3,8 @@
 import Crown from '@/svg/Crown'
 import Question from '@/svg/Question'
 import React , { useRef , useCallback } from 'react'
+import { motion } from "framer-motion"
+import Header2 from '../shared/Header2'
 
 type props = {
   changeCurrent : (value : string) => void
@@ -22,7 +24,7 @@ const AboutMe : React.FC<props> = ({
         changeCurrent && changeCurrent("About me")
       }
     },{
-      rootMargin: (node.offsetHeight / 2) * -1 + "px"
+      rootMargin: (node.offsetHeight / 2.5) * -1 + "px 0px"
     })
 
     if(node) observer.current.observe(node)
@@ -42,10 +44,23 @@ const AboutMe : React.FC<props> = ({
     gap-y-8
     `}>
 
-        <div
+        <motion.div
+        initial={{
+          y : -60,
+          opacity : 0
+        }}
+        whileInView={{
+          y : 0,
+          opacity : 1
+        }}
+        viewport={{
+          once : true,
+          margin : "0px 0px -50% 0px"
+        }}
         className='
         relative
         '>
+  
           <Question
           className='
           lg:w-[30vw]
@@ -82,7 +97,7 @@ const AboutMe : React.FC<props> = ({
           color="fill-cyan-500"
           />
 
-        </div>
+        </motion.div>
 
         <div
         className='
@@ -90,16 +105,12 @@ const AboutMe : React.FC<props> = ({
         flex-col
         gap-3
         '>
-            <h2
-            id="about"
-            className={`
-            text-[40px]
-            font-bold
-            text-neutral-800
-            `}>
-                Who is <span className='text-cyan-500'>MmD</span>?
-            </h2>
-
+            <Header2
+            text='Who is MmD?'
+            color='text-cyan-500'
+            colored_text='MmD?'
+            />
+            
             <p>
                 My name is Mohammad Jamali and I was born on July 6 of 2004, in Tabriz, a city in South Azerbaijan. I am a highly motivated and passionate self-taught front-end developer with experience building websites and web applications using frameworks such as React, Preact, and Next.
             </p>
@@ -122,7 +133,23 @@ const AboutMe : React.FC<props> = ({
 
               {technologies.map((item , idx) => {
                 return(
-                  <span
+                  <motion.span
+                  key={idx}
+                  transition={{
+                    delay : ((idx + 1) * .05)
+                  }}
+                  initial={{
+                    y : -30,
+                    opacity : 0,
+                  }}
+                  whileInView={{
+                    y : 0,
+                    opacity : 1
+                  }}
+                  viewport={{
+                    once : true,
+                    margin : "0px 0px -25% 0px"
+                  }}
                   className={`
                   flex 
                   items-center
@@ -142,7 +169,7 @@ const AboutMe : React.FC<props> = ({
                       {item}
                     </span>
 
-                  </span>
+                  </motion.span>
                 )
               })}
 

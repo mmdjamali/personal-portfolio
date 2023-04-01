@@ -1,5 +1,5 @@
 import React from 'react'
-
+import { motion } from "framer-motion"
 type props = {
     quote : string,
     by : string
@@ -22,7 +22,19 @@ const Quote : React.FC<props> = ({
         className='
         relative
         '>
-            <div
+            <motion.div
+            initial={{
+                y : 0,
+                x : 0,
+            }}
+            whileInView={{
+                y : -6,
+                x : -6,
+            }}
+            viewport={{
+                once : true,
+                margin : "0px 0px -50% 0px"
+            }}
             className='
             relative
             z-[1]
@@ -39,14 +51,14 @@ const Quote : React.FC<props> = ({
                     {quote}
                 </p>
                 <span>- {by}</span>
-            </div>
+            </motion.div>
 
             <div
             className='
             z-[0]
             absolute
-            bottom-[-6px]
-            right-[-6px]
+            bottom-[0px]
+            right-[0px]
             w-full
             h-full
             p-4
