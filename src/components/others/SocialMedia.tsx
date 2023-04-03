@@ -2,6 +2,8 @@ import React from 'react'
 import {AiFillGithub} from "react-icons/ai";
 import {FaLinkedinIn , FaTelegramPlane} from "react-icons/fa";
 
+import { motion } from 'framer-motion';
+
 const SocialMedia = ({
 
 }) => {
@@ -15,6 +17,7 @@ const SocialMedia = ({
     bottom-[50%]
     translate-y-[50%]
     text-neutral-800
+    dark:text-white
     sm:flex
     hidden
     h-fit
@@ -24,14 +27,27 @@ const SocialMedia = ({
     gap-3
     '>
         {platform.map(({link , Icon , name} , idx) => 
-            <a
+            <motion.a
             key={idx}
+            transition={{
+              delay : ((idx + 1) * .05)
+            }}
+            initial={{
+              y : -60,
+              opacity : 0,
+              display : "none"
+            }}
+            animate={{
+              y : 0,
+              opacity : 1,
+              display: "inline-block"
+            }}
             className={`
             text-[1.5rem]
             `}
             href={link}>
                 <Icon/>
-            </a>
+            </motion.a>
         )}
     </div>
   )
@@ -42,17 +58,17 @@ export default SocialMedia
 const platform = [
     {
         name : "github",
-        link : "",
+        link : "https://github.com/1stMmD",
         Icon : AiFillGithub
     },
     {
         name : "linkedin",
-        link : "",
+        link : "https://www.linkedin.com/in/mmdjamali/",
         Icon : FaLinkedinIn
     },
     {
         name : "telegram",
-        link : "",
+        link : "https://t.me/x1stMmD",
         Icon : FaTelegramPlane
     },
 ]

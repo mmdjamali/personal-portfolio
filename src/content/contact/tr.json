@@ -1,0 +1,10 @@
+{
+    "header" : {
+        "text" : "Hadi biraz sohbet edelim!",
+        "colored" : "sohbet",
+        "color" : "text-red-500"
+    },
+    "description" : "Hadi Projeniz hakkında konuşalım, yeteneklerimi yeni bir projeye veya işbirliğine dahil etmek isterim.",
+    "cta" : "Mail gonder"
+    
+}

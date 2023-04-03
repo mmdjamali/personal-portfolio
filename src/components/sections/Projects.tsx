@@ -1,7 +1,9 @@
-import json from "../../content/projects.json"
 import { techLists } from "@/assets/TechIcons"
+import { projects_content } from "@/content/projects"
 import React , { useRef , useCallback } from 'react'
 import { IoIosArrowForward } from "react-icons/io"
+import Header2 from "../shared/Header2"
+import { useAppState } from "@/stores/store"
 
 type props = {
   changeCurrent : (value : string) => void
@@ -10,6 +12,10 @@ type props = {
 const Projects : React.FC<props> = ({
   changeCurrent
 }) => {
+  const { language } = useAppState()
+
+  const json = projects_content[language]
+
   const observer = useRef<IntersectionObserver | null>(null)
   
   const handle =  useCallback((node : HTMLElement) => {
@@ -21,7 +27,7 @@ const Projects : React.FC<props> = ({
         changeCurrent && changeCurrent("Projects")
       }
     },{
-      rootMargin: "0px " + (node.offsetHeight / 2.5) * -1 + "px 0px"
+      rootMargin:(node.offsetHeight / 3) * -1 + "px 0px"
     })
 
     if(node) observer.current.observe(node)
@@ -30,6 +36,7 @@ const Projects : React.FC<props> = ({
 
   return (
     <section
+    id="Projects"
     ref={handle}
     className={`
     flex
@@ -37,29 +44,15 @@ const Projects : React.FC<props> = ({
     py-16
     gap-8
     `}>
-      <h2
-      className="
-      flex
-      flex-wrap
-      gap-2
-      text-[40px]
-      font-bold
-      text-neutral-800
-      ">
-        {json.content.title["en"].value.split(" ").map((item, idx) => {
-          return(
-            <span
-            key={idx}
-            className={json.content.title["en"].color === item ? "text-green-500" : ""}>
-              {item}
-            </span>
-          )
-        })}
-      </h2>
+      <Header2
+      text={json.header.text}
+      colored_text={json.header.colored}
+      color={"text-green-500"}
+      />
 
       {
         json.projects.map(({
-          name , 
+          title , 
           description , 
           technologies ,
           image
@@ -74,25 +67,28 @@ const Projects : React.FC<props> = ({
             items-center
             justify-between
             gap-8
+            relative
             `}>
 
               <div
               className="
+              lg:w-[50%]
               flex
               flex-col
               gap-3
               text-neutral-800
+              dark:text-white
               ">
                 <h3
                 className="
                 text-[24px]
-                font-bold
+                font-medium
                 ">
-                  {name["en"]}
+                  {title}
                 </h3>
 
                 <p>
-                  {description["en"]}
+                  {description}
                 </p>
 
                 <div
@@ -139,6 +135,7 @@ const Projects : React.FC<props> = ({
                   hover:after:max-w-full
                   after:h-[2px]
                   after:bg-neutral-800
+                  dark:after:bg-white
                   after:absolute
                   after:bottom-0
                   after:left-0
@@ -154,6 +151,7 @@ const Projects : React.FC<props> = ({
               className={`
               flex
               relative
+              lg:w-[50%]
               `}>
 
                 <div
@@ -172,7 +170,7 @@ const Projects : React.FC<props> = ({
                   object-cover
                   `}
                   src={image}
-                  alt={name["en"]}
+                  alt={title}
                   />
                 </div>
 

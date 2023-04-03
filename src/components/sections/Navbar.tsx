@@ -4,6 +4,8 @@ import Crown from '@/svg/Crown'
 import Link from 'next/link'
 import React, { useEffect, useState } from 'react'
 import { motion } from 'framer-motion';
+import ThemeButton from '../others/theme-button';
+import LanguageButton from '../others/language-button';
 
 const Navbar = () => {
     const [show, setShow] = useState<boolean>(true)
@@ -35,8 +37,6 @@ const Navbar = () => {
         }
     },[])
 
-    
-
   if(!show) return <></>
 
   return (
@@ -46,6 +46,7 @@ const Navbar = () => {
     sticky
     top-0
     bg-white
+    dark:bg-neutral-800
     flex
     items-center
     justify-between
@@ -68,14 +69,22 @@ const Navbar = () => {
             w-[30px]
             aspect-square
             '
-            color="fill-neutral-800"
-            backdropColor="fill-neutral-900"
+            color="
+            fill-neutral-800
+            dark:fill-neutral-50
+            "
+            backdropColor="
+            fill-neutral-900
+            dark:fill-neutral-100
+            "
             />
         </motion.div>
 
         <div
         className='
-        flex
+        hidden
+        sm:flex
+        dark:text-white
         items-center
         justify-center
         gap-6
@@ -96,12 +105,47 @@ const Navbar = () => {
                 }}
                 >
                     <Link
+                    className="
+                    relative
+                    after:transition-all
+                    after:content-['']
+                    after:w-full
+                    after:max-w-[0px]
+                    hover:after:max-w-full
+                    after:h-[2px]
+                    after:bg-neutral-800
+                    dark:after:bg-white
+                    after:absolute
+                    after:bottom-0
+                    after:left-0
+                    "
                     key={idx} 
-                    href={`#` + item.toLocaleLowerCase()}>
+                    onClick={(e) => {
+                        e.preventDefault()
+                        document.getElementById(item)?.scrollIntoView({
+                            behavior : "smooth",
+                            block : "start"
+                        })
+                    }}
+                    href={"#" + item}>
                         {item}
                     </Link>
                 </motion.div>
             )}
+        </div>
+        
+        <div
+        className="
+        flex
+        items-center
+        justify-center
+        gap-3
+        ">
+
+            <ThemeButton/>
+
+            <LanguageButton/>
+
         </div>
     </nav>
   )
@@ -110,7 +154,8 @@ const Navbar = () => {
 export default Navbar
 
 const sections = [
-    "Home",
+    "Introduction",
     "About",
     "Projects",
+    "Contact"
 ]

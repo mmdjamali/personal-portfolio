@@ -5,6 +5,9 @@ import React , { useRef , useCallback } from 'react'
 import CallToAction from '../buttons/CallToAction'
 import JSButton from '../buttons/JSButton'
 import { motion } from "framer-motion"
+import {introduction_contact } from '@/content/intrudaction'
+import { useAppState } from '@/stores/store'
+
 type props = {
   changeCurrent : (value : string) => void
 }
@@ -12,6 +15,9 @@ type props = {
 const Introduction : React.FC<props> = ({
   changeCurrent
 }) => {
+  const { language } = useAppState()
+
+  const json = introduction_contact[language]
 
   const observer = useRef<IntersectionObserver | null>(null)
   
@@ -33,6 +39,7 @@ const Introduction : React.FC<props> = ({
 
   return (
     <section
+    id="Introduction"
     ref={handle}
     className={`
     flex
@@ -56,13 +63,15 @@ const Introduction : React.FC<props> = ({
             text-[40px]
             font-bold
             text-neutral-800
+            dark:text-white
             flex 
             flex-wrap
             `}>
               {
-                ["Hi I'm MmD","a self taught", "JS developer"].map((item , idx) => {  
+                json.header.map((item , idx) => {  
                   return (
                     <motion.div
+                    key={item[5] + item[0] + idx}
                     transition={{
                       delay : ((idx + 1) * .1) + .4
                     }}
@@ -70,9 +79,12 @@ const Introduction : React.FC<props> = ({
                       y : -60,
                       opacity : 0
                     }}
-                    animate={{
+                    whileInView={{
                       y : 0,
                       opacity : 1
+                    }}
+                    viewport={{
+                      once : true
                     }}
                     className='
                     w-full
@@ -103,11 +115,12 @@ const Introduction : React.FC<props> = ({
             <p
             className='
             text-neutral-800
+            dark:text-white
             flex
             flex-wrap
             gap-x-1
             '>
-            {"Let me help take your startup's ideas to life with engaging and interactive frontend development."
+            {json.offer
             .split(" ")
             .map((word , idx) => {
               return(
@@ -125,7 +138,7 @@ const Introduction : React.FC<props> = ({
                   opacity : 1
                 }}
                 viewport={{
-                  once : true
+                  once : true,
                 }}
                 >
                   {word}
@@ -136,6 +149,7 @@ const Introduction : React.FC<props> = ({
             </p>
 
             <div
+            key={json['cta-main']}
             className='
             pt-8
             flex
@@ -155,17 +169,18 @@ const Introduction : React.FC<props> = ({
                 opacity : 1
               }}
               viewport={{
-                once : true
+                once : true,
               }}
               >
                 <CallToAction
                 secondary={false}
                 >
-                  Hire me
+                  {json['cta-main']}
                 </CallToAction>
               </motion.div>
 
               <motion.div
+              key={json['cta-secondary']}
               transition={{
                 delay : 2.5
               }}
@@ -184,7 +199,7 @@ const Introduction : React.FC<props> = ({
                 <CallToAction
                 secondary
                 >
-                  Download CV
+                  {json['cta-secondary']}
                 </CallToAction>
               </motion.div>
             </div>
@@ -202,7 +217,8 @@ const Introduction : React.FC<props> = ({
             opacity : 1,
           }}
           viewport={{
-            once : true
+            once : true,
+            margin : "0px 0px -50% 0px"
           }}
           >
             <Crown
@@ -211,8 +227,14 @@ const Introduction : React.FC<props> = ({
             lg:w-[30vw]
             aspect-square
             '
-            color="fill-neutral-900"
-            backdropColor="fill-neutral-800"
+            color="
+            fill-neutral-800
+            dark:fill-neutral-50
+            "
+            backdropColor="
+            fill-neutral-900
+            dark:fill-neutral-200
+            "
             />
           </motion.span>
 
@@ -228,7 +250,8 @@ const Introduction : React.FC<props> = ({
             opacity : 1
           }}
           viewport={{
-            once : true
+            once : true,
+            margin : "0px 0px -50% 0px"
           }}
           className={`
           absolute
@@ -258,7 +281,8 @@ const Introduction : React.FC<props> = ({
             opacity : 1
           }}
           viewport={{
-            once : true
+            once : true,
+            margin : "0px 0px -50% 0px"
           }}
           >
             <Crown

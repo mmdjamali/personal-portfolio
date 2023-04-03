@@ -1,11 +1,41 @@
-import React from 'react'
-import Input from '../inputs/Input'
-import Textarea from '../inputs/Textarea'
+import React, { useCallback, useRef } from 'react'
 import CallToAction from '../buttons/CallToAction'
+import { contact } from '@/content/contact'
+import Header2 from '../shared/Header2'
+import { useAppState } from '@/stores/store'
 
-const Contact = () => {
+type props = {
+    changeCurrent : (value : string) => void
+}
+
+const Contact = ({
+    changeCurrent
+} : props) => {
+  const { language } = useAppState()
+
+  const json = contact[language]
+
+  const observer = useRef<IntersectionObserver | null>(null)
+  
+  const handle =  useCallback((node : HTMLElement) => {
+
+    if(observer.current) observer.current.disconnect()
+    
+    observer.current = new IntersectionObserver(entries => {
+      if(entries[0].isIntersecting){
+        changeCurrent && changeCurrent("contact me")
+      }
+    },{
+      rootMargin:(node.offsetHeight / 3) * -1 + "px 0px"
+    })
+
+    if(node) observer.current.observe(node)
+
+  },[])
   return (
-    <div
+    <section
+    id="Contact"
+    ref={handle}
     className={`
     flex
     flex-col
@@ -21,20 +51,18 @@ const Contact = () => {
         gap-2
         max-w-[500px]
         `}>
-            <h2
-            className='
-            flex
-            flex-wrap
-            gap-2
-            text-[40px]
-            font-bold
-            text-neutral-800'
-            >
-                Let's <span className='text-red-500'>Chat</span>
-            </h2>
+            <Header2
+            text={json.header.text}
+            colored_text={json.header.colored}
+            color={"text-red-500"}
+            />
 
-            <p>
-                Let's talk about your project, I am excited to bring my skills and experience to a new project or collaborative effort.
+            <p
+            className='
+            text-neutral-800
+            dark:text-white
+            '>
+              {json.description}
             </p>
 
             <a
@@ -47,12 +75,12 @@ const Contact = () => {
                 <CallToAction
                 secondary={false}
                 >
-                    Send me email
+                    {json.cta}
                 </CallToAction>
             </a>
         </div>
 
-    </div>
+    </section>
   )
 }
 

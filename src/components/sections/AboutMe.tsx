@@ -5,6 +5,8 @@ import Question from '@/svg/Question'
 import React , { useRef , useCallback } from 'react'
 import { motion } from "framer-motion"
 import Header2 from '../shared/Header2'
+import { about_me } from '@/content/about'
+import { useAppState } from '@/stores/store'
 
 type props = {
   changeCurrent : (value : string) => void
@@ -13,6 +15,10 @@ type props = {
 const AboutMe : React.FC<props> = ({
   changeCurrent
 }) => {
+  const { language } = useAppState()
+
+  const json = about_me[language]
+
   const observer = useRef<IntersectionObserver | null>(null)
   
   const handle =  useCallback((node : HTMLElement) => {
@@ -34,6 +40,7 @@ const AboutMe : React.FC<props> = ({
   return (
     <section
     ref={handle}
+    id="About"
     className={`
     flex
     lg:flex-row
@@ -67,8 +74,14 @@ const AboutMe : React.FC<props> = ({
           w-[50vw]
           aspect-square
           '
-          backdropColor="fill-neutral-900"
-          color="fill-neutral-800"
+          backdropColor="
+          fill-neutral-900
+          dark:fill-neutral-200
+          "
+          color="
+          fill-neutral-800
+          dark:fill-neutral-50
+          "
           />
 
           <Question
@@ -101,26 +114,28 @@ const AboutMe : React.FC<props> = ({
 
         <div
         className='
+        dark:text-white
+        text-neutral-800
         flex
         flex-col
         gap-3
         '>
             <Header2
-            text='Who is MmD?'
-            color='text-cyan-500'
-            colored_text='MmD?'
+            text={json.header.text}
+            color={json.header.color}
+            colored_text={json.header.colored}
             />
             
             <p>
-                My name is Mohammad Jamali and I was born on July 6 of 2004, in Tabriz, a city in South Azerbaijan. I am a highly motivated and passionate self-taught front-end developer with experience building websites and web applications using frameworks such as React, Preact, and Next.
+              {json.about}
             </p>
 
             <p>
-                Additionally, I am a self-taught polyglot who speaks English, Turkish, Azeri, and Persian fluently. 
+              {json.languages}
             </p>
 
             <p>
-              here are few technologies I've worked with recently:
+              {json.recent}
             </p>
             
             <div
@@ -131,7 +146,7 @@ const AboutMe : React.FC<props> = ({
             grid-cols-[repeat(auto-fill,_minmax(120px,_1fr))]
             `}>
 
-              {technologies.map((item , idx) => {
+              {json['recent-skills'].map((item , idx) => {
                 return(
                   <motion.span
                   key={idx}
@@ -161,8 +176,14 @@ const AboutMe : React.FC<props> = ({
                     w-[30px]
                     aspect-square
                     '
-                    color="fill-neutral-700"
-                    backdropColor="fill-neutral-800"
+                    color="
+                    fill-neutral-700
+                    dark:fill-neutral-50
+                    "
+                    backdropColor="
+                    fill-neutral-800
+                    dark:fill-neutral-200
+                    "
                     />
 
                     <span>

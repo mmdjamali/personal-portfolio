@@ -9,5 +9,6 @@
     *
     {
         font-family: Poppins;
+        transition : color 300ms,background-color 300ms;
     }
 }

@@ -25,10 +25,12 @@ const CallToAction : React.FC<props> = ({
         -translate-y-[3px]
         active:-translate-y-[0]
         active:-translate-x-[0]
-       ${!secondary ? "bg-neutral-800  text-white" : "bg-white text-neutral-800"}
+       ${!secondary ? 
+        "bg-neutral-800 dark:bg-white text-white dark:text-neutral-800" : 
+        "bg-white dark:bg-neutral-800 text-neutral-800 dark:text-white"}
         border-[2px]
         border-neutral-800
-       
+       dark:border-white
         font-medium
         text-[20px]
         px-8
@@ -45,8 +47,10 @@ const CallToAction : React.FC<props> = ({
         w-full
         h-[calc(100%)]
         bg-neutral-900
+        dark:bg-neutral-200
         border-[2px]
         border-neutral-900
+        dark:border-neutral-200
         bottom-0
         left-0
         '

@@ -22,7 +22,7 @@ export default function Home() {
     flex
     flex-col
     sm:px-[64px]
-    px-[16px]
+    px-[0]
     `}>
 
       <FixedPageLocation
@@ -53,7 +53,8 @@ export default function Home() {
       quote={"The only person who is educated is the one who learned how to learn and change"}
       />
 
-      <Contact/>
+      <Contact
+      changeCurrent={handleChange}/>
 
       <Footer/>
 

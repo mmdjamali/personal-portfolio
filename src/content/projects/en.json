@@ -1,0 +1,19 @@
+{
+    "header" : {
+        "text" : "Let's see some of my work!",
+        "colored" : "work!",
+        "color" : "text-emerald-500"
+    },
+    "projects" : [
+        {
+            "title" : "Bavard bir twitter klonu",
+            "description" :"Bir sosyal medya uygulaması, kullanıcıların işleri veya hayatları hakkında paylaşım yapmalarına izin verir. Kullanıcılar profil oluşturabilir, gönderi paylaşabilir ve diğer insanların gönderilerini beğenme, yanıt verme ve yeniden paylaşma gibi işlemleri yapabilirler. Uygulamanın front-end kismi React ve Tailwind kullanılarak,backend ise Supabase kullanılarak inşa edilmiştir.",
+            "technologies" : ["react", "vite", "supabase","tailwind"],
+            "image" : "/images/Bavard.png",
+            "color" : {
+                "backdrop" : "bg-violet-600",
+                "background" : "bg-violet-500"
+            }
+        }
+    ]
+}

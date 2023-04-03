@@ -43,6 +43,7 @@ const FixedPageLocation : React.FC<props> = ({
             className={`
             uppercase
             text-neutral-800
+            dark:text-white
             text-[1rem]
             font-semibold
             `}>
@@ -56,6 +57,7 @@ const FixedPageLocation : React.FC<props> = ({
         inline-block
         w-[4px]
         bg-neutral-800
+        dark:bg-white
         '
         />
     </div>

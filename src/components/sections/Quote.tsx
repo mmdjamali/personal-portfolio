@@ -44,6 +44,8 @@ const Quote : React.FC<props> = ({
             gap-4
             items-start
             bg-neutral-700
+            dark:bg-white
+            dark:text-neutral-700
             text-white
             max-w-[min(350px,80vw)]
             '>
@@ -67,7 +69,7 @@ const Quote : React.FC<props> = ({
             gap-4
             items-start
             bg-neutral-800
-            text-white
+            dark:bg-neutral-200
             max-w-[min(350px,80vw)]
             '/>
         </div>

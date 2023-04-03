@@ -1,0 +1,18 @@
+{
+    "header" : {
+        "text" : "Kim bu MmD?",
+        "colored" : "MmD?",
+        "color" : "text-cyan-500"
+    },
+    "about" : "Merhaba, adım Mohammad Jamali. 6 Temmuz 2004 tarihinde Güney Azerbaycan'ın Tebriz şehrinde doğdum. Kendini geliştirerek işinde tutkulu ve yüksek motivasyona sahip bir front-end developer olmaya calisiyorum. React, Preact ve Next gibi framworklari kullanarak web siteleri ve uygulamaları geliştiyorum",
+    "languages" : "Ayrıca, bir dil meraklısıyım ve İngilizce, Türkçe, Azerice ve Farsça dillerini akıcı bir şekilde konuşabiliyorum.",
+    "recent" : "Son zamanlarda kullandığım teknolojilerden bazilari:",
+    "recent-skills" : [
+        "JavaScript",
+        "TypeScript",
+        "React",
+        "Next",
+        "Tailwind",
+        "Node"
+    ]
+}

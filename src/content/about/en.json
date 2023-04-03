@@ -1,0 +1,18 @@
+{
+    "header" : {
+        "text" : "Who is MmD?",
+        "colored" : "MmD?",
+        "color" : "text-cyan-500"
+    },
+    "about" : "My name is Mohammad Jamali and I was born on July 6 of 2004, in Tabriz, a city in South Azerbaijan. I am a highly motivated and passionate self-taught front-end developer with experience building websites and web applications using frameworks such as React, Preact, and Next.",
+    "languages" : "Additionally, I am a self-taught polyglot who speaks English, Turkish, Azeri, and Persian fluently.",
+    "recent" : "here are few technologies I've worked with recently:",
+    "recent-skills" : [
+        "JavaScript",
+        "TypeScript",
+        "React",
+        "Next",
+        "Tailwind",
+        "Node"
+    ]
+}
