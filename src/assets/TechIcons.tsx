@@ -4,7 +4,8 @@ import {
     SiReact,
     SiVite,
     SiTailwindcss,
-    SiSupabase
+    SiSupabase ,
+    SiNextdotjs
 } from "react-icons/si";
 
 import {
@@ -36,5 +37,9 @@ export const techLists : {
     "supabase" : {
         Icon : SiSupabase,
         color : "text-emerald-500"
+    },
+    "next" : {
+        Icon : SiNextdotjs,
+        color : "text-neutral-800 dark:text-white"
     },
 }

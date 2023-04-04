@@ -26,15 +26,15 @@ export default function Home() {
       <AboutMe/>
 
       <Quote
-      by='Carl rogers'
-      quote={"The only person who is educated is the one who learned how to learn and change"}
+      by='Jeff Atwood '
+      quote={"Any application that can be written in JavaScript, will eventually be written in JavaScript."}
       />
 
       <Projects/>
 
       <Quote
-      by='Carl rogers'
-      quote={"The only person who is educated is the one who learned how to learn and change"}
+      by='Thomas Edison'
+      quote={"I have not failed. I've just found 10,000 ways that won't work."}
       />
 
       <Contact/>

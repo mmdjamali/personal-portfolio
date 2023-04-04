@@ -1,10 +1,10 @@
 import { techLists } from "@/assets/TechIcons"
 import { projects_content } from "@/content/projects"
-import React , { useRef , useCallback } from 'react'
 import { IoIosArrowForward } from "react-icons/io"
 import Header2 from "../shared/Header2"
 import { useAppState } from "@/stores/store"
 import { useChangeSection } from "@/hooks/change-section"
+import { motion } from "framer-motion"
 
 const Projects = () => {
   const { language } = useAppState()
@@ -34,7 +34,8 @@ const Projects = () => {
           title , 
           description , 
           technologies ,
-          image
+          image,
+          color
         }, idx) => {
           return(
             <div
@@ -45,7 +46,7 @@ const Projects = () => {
             flex-col
             items-center
             justify-between
-            gap-8
+            gap-12
             relative
             `}>
 
@@ -133,10 +134,22 @@ const Projects = () => {
               lg:w-[50%]
               `}>
 
-                <div
+                <motion.div
+                initial={{
+                  y : 0,
+                  x : 0
+                }}
+                whileInView={{
+                  y : -6,
+                  x : -6
+                }}
+                viewport={{
+                  margin : "0px 0px -50% 0px",
+                  once : true
+                }}
                 className={`
                 z-[1]
-                bg-violet-500
+                ${color.background}
                 p-2
                 flex
                 relative
@@ -151,7 +164,7 @@ const Projects = () => {
                   src={image}
                   alt={title}
                   />
-                </div>
+                </motion.div>
 
                 <span
                 className={`
@@ -159,9 +172,9 @@ const Projects = () => {
                 absolute
                 w-full
                 h-full
-                bg-violet-600
-                bottom-[-6px]
-                right-[-6px]
+                ${color.backdrop}
+                bottom-0
+                right-0
                 `}
                 />
 

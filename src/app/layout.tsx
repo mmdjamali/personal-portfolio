@@ -34,11 +34,17 @@ export default function RootLayout({
         <meta property="og:url" content="http://mmdjamali.ir"/>
         <meta property="og:title" content="Mohammad Jamali" />
         <meta property="og:description" content="Personal portfolio of self-taught developer Mohammad Jamali" />
-        <meta property="og:image" content="crown.svg" />
-        <meta property="og:image:type" content="image/svg" />
+        <meta property="og:image" content="crown.png" />
+        <meta property="og:image:type" content="image/png" />
         <meta property="og:image:width" content="400" />
         <meta property="og:image:height" content="400" />
         <meta property="og:image:alt" content="A black crown" />
+        <link 
+        rel="icon" 
+        type="image/svg" 
+        href="fevicon.svg" 
+        />
+
       </head>
 
       <body
