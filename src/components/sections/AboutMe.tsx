@@ -2,44 +2,22 @@
 
 import Crown from '@/svg/Crown'
 import Question from '@/svg/Question'
-import React , { useRef , useCallback } from 'react'
 import { motion } from "framer-motion"
 import Header2 from '../shared/Header2'
 import { about_me } from '@/content/about'
 import { useAppState } from '@/stores/store'
+import { useChangeSection } from '@/hooks/change-section'
 
-type props = {
-  changeCurrent : (value : string) => void
-}
-
-const AboutMe : React.FC<props> = ({
-  changeCurrent
-}) => {
+const AboutMe = () => {
   const { language } = useAppState()
 
   const json = about_me[language]
-
-  const observer = useRef<IntersectionObserver | null>(null)
   
-  const handle =  useCallback((node : HTMLElement) => {
-
-    if(observer.current) observer.current.disconnect()
-    
-    observer.current = new IntersectionObserver(entries => {
-      if(entries[0].isIntersecting){
-        changeCurrent && changeCurrent("About me")
-      }
-    },{
-      rootMargin: (node.offsetHeight / 2.5) * -1 + "px 0px"
-    })
-
-    if(node) observer.current.observe(node)
-
-  },[])
+  const ref =  useChangeSection("About")
 
   return (
     <section
-    ref={handle}
+    ref={ref}
     id="About"
     className={`
     flex

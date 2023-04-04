@@ -3,39 +3,19 @@ import CallToAction from '../buttons/CallToAction'
 import { contact } from '@/content/contact'
 import Header2 from '../shared/Header2'
 import { useAppState } from '@/stores/store'
+import { useChangeSection } from '@/hooks/change-section'
 
-type props = {
-    changeCurrent : (value : string) => void
-}
-
-const Contact = ({
-    changeCurrent
-} : props) => {
+const Contact = () => {
   const { language } = useAppState()
 
   const json = contact[language]
-
-  const observer = useRef<IntersectionObserver | null>(null)
   
-  const handle =  useCallback((node : HTMLElement) => {
+  const ref =  useChangeSection("Contact")
 
-    if(observer.current) observer.current.disconnect()
-    
-    observer.current = new IntersectionObserver(entries => {
-      if(entries[0].isIntersecting){
-        changeCurrent && changeCurrent("contact me")
-      }
-    },{
-      rootMargin:(node.offsetHeight / 3) * -1 + "px 0px"
-    })
-
-    if(node) observer.current.observe(node)
-
-  },[])
   return (
     <section
     id="Contact"
-    ref={handle}
+    ref={ref}
     className={`
     flex
     flex-col

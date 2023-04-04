@@ -6,9 +6,12 @@ import React, { useEffect, useState } from 'react'
 import { motion } from 'framer-motion';
 import ThemeButton from '../others/theme-button';
 import LanguageButton from '../others/language-button';
+import { BiMenuAltRight } from "react-icons/bi"
+import { MdClose } from "react-icons/md"
 
 const Navbar = () => {
     const [show, setShow] = useState<boolean>(true)
+    const [showNavbar, setShowNavbar] = useState<boolean>(false)
     
     useEffect(() => {
         let lastY : number = 0;
@@ -35,7 +38,7 @@ const Navbar = () => {
 
 
         }
-    },[])
+    },[setShow])
 
   if(!show) return <></>
 
@@ -92,6 +95,7 @@ const Navbar = () => {
         '>
             {sections.map((item, idx) => 
                 <motion.div
+                key={idx}
                 transition={{
                     delay : ((idx + 1) * .05)
                 }}
@@ -147,6 +151,93 @@ const Navbar = () => {
             <LanguageButton/>
 
         </div>
+
+        <button
+        onClick={() => {
+            setShowNavbar(prev => !prev)
+        }}
+        className='
+        text-neutral-800
+        dark:text-white
+        flex
+        sm:hidden
+        items-center
+        justify-center
+        text-[2rem]
+        '>
+            <BiMenuAltRight/>
+        </button>
+
+        { showNavbar ?
+        <div
+        className='
+        absolute
+        top-[100%]
+        right-0
+        flex
+        sm:hidden
+        flex-row
+        justify-start
+        gap-3
+        w-full
+        py-4
+        h-fit
+        text-neutral-800
+        dark:text-white
+        bg-white
+        dark:bg-neutral-800
+        '
+        >
+
+            {sections.map((item,idx) => (
+                <motion.div
+                key={idx}
+                transition={{
+                    delay : ((idx + 1) * .05)
+                }}
+                initial={{
+                    y : -60,
+                    opacity : 0
+                }}
+                animate={{
+                    y : 0,
+                    opacity : 1
+                }}
+                >
+                    <Link
+                    className="
+                    relative
+                    after:transition-all
+                    after:content-['']
+                    after:w-full
+                    after:max-w-[0px]
+                    hover:after:max-w-full
+                    after:h-[2px]
+                    after:bg-neutral-800
+                    dark:after:bg-white
+                    after:absolute
+                    after:bottom-0
+                    after:left-0
+                    "
+                    key={idx} 
+                    onClick={(e) => {
+                        e.preventDefault()
+                        document.getElementById(item)?.scrollIntoView({
+                            behavior : "smooth",
+                            block : "start"
+                        })
+                    }}
+                    href={"#" + item}>
+                        {item}
+                    </Link>
+                </motion.div>
+            ))}
+
+        </div>
+        :
+        <></>
+        }
+
     </nav>
   )
 }

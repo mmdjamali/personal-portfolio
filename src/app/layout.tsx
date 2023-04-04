@@ -28,6 +28,19 @@ export default function RootLayout({
     className={`
     ${theme}
     `}>
+      <head>
+        <title>Mohammad Jamali</title>
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="http://mmdjamali.ir"/>
+        <meta property="og:title" content="Mohammad Jamali" />
+        <meta property="og:description" content="Personal portfolio of self-taught developer Mohammad Jamali" />
+        <meta property="og:image" content="crown.svg" />
+        <meta property="og:image:type" content="image/svg" />
+        <meta property="og:image:width" content="400" />
+        <meta property="og:image:height" content="400" />
+        <meta property="og:image:alt" content="A black crown" />
+      </head>
+
       <body
       className={`
       xl:px-[128px]
@@ -67,6 +80,7 @@ export default function RootLayout({
           </div>
           :
           <>
+          <FixedPageLocation/>
           <SocialMedia/>
           <Navbar/>
           {children}

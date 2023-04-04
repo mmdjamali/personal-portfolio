@@ -2,12 +2,14 @@ import React from 'react'
 
 type props = {
     secondary : boolean,
-    children : React.ReactNode
+    children : React.ReactNode,
+    onClick? : (e : React.MouseEvent<HTMLButtonElement, MouseEvent>) => void
 }
 
 const CallToAction : React.FC<props> = ({
     secondary,
-    children
+    children,
+    onClick
 }) => {
   return (
     <div
@@ -18,6 +20,7 @@ const CallToAction : React.FC<props> = ({
     min-h-[50px]
     '>
         <button
+        onClick={onClick}
         className={`
         relative
         z-[5]

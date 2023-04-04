@@ -1,12 +1,9 @@
 import React from 'react'
 import { motion } from "framer-motion"
-type props = {
-  current : string
-}
+import { useAppState } from '@/stores/store'
 
-const FixedPageLocation : React.FC<props> = ({
-  current
-}) => {
+const FixedPageLocation = () => {
+  const { section } = useAppState()
   return (
     <div
     className={`
@@ -23,7 +20,7 @@ const FixedPageLocation : React.FC<props> = ({
     hidden
     sm:flex
     `}>
-        {current.split("").map((latter , idx) =>
+        {section.split("").map((latter , idx) =>
             <motion.div
             key={latter + Math.random()}
             transition={{

@@ -4,40 +4,19 @@ import React , { useRef , useCallback } from 'react'
 import { IoIosArrowForward } from "react-icons/io"
 import Header2 from "../shared/Header2"
 import { useAppState } from "@/stores/store"
+import { useChangeSection } from "@/hooks/change-section"
 
-type props = {
-  changeCurrent : (value : string) => void
-}
-
-const Projects : React.FC<props> = ({
-  changeCurrent
-}) => {
+const Projects = () => {
   const { language } = useAppState()
 
   const json = projects_content[language]
-
-  const observer = useRef<IntersectionObserver | null>(null)
   
-  const handle =  useCallback((node : HTMLElement) => {
-
-    if(observer.current) observer.current.disconnect()
-    
-    observer.current = new IntersectionObserver(entries => {
-      if(entries[0].isIntersecting){
-        changeCurrent && changeCurrent("Projects")
-      }
-    },{
-      rootMargin:(node.offsetHeight / 3) * -1 + "px 0px"
-    })
-
-    if(node) observer.current.observe(node)
-
-  },[])
+  const ref =  useChangeSection("Projects")
 
   return (
     <section
     id="Projects"
-    ref={handle}
+    ref={ref}
     className={`
     flex
     flex-col

@@ -7,40 +7,19 @@ import JSButton from '../buttons/JSButton'
 import { motion } from "framer-motion"
 import {introduction_contact } from '@/content/intrudaction'
 import { useAppState } from '@/stores/store'
+import { useChangeSection } from '@/hooks/change-section'
 
-type props = {
-  changeCurrent : (value : string) => void
-}
-
-const Introduction : React.FC<props> = ({
-  changeCurrent
-}) => {
+const Introduction = () => {
   const { language } = useAppState()
 
   const json = introduction_contact[language]
-
-  const observer = useRef<IntersectionObserver | null>(null)
   
-  const handle =  useCallback((node : HTMLElement) => {
-
-    if(observer.current) observer.current.disconnect()
-    
-    observer.current = new IntersectionObserver(entries => {
-      if(entries[0].isIntersecting){
-        changeCurrent && changeCurrent("Home")
-      }
-    },{
-      rootMargin:(node.offsetHeight / 3) * -1 + "px 0px"
-    })
-
-    if(node) observer.current.observe(node)
-
-  },[])
+  const ref =  useChangeSection("introduction")
 
   return (
     <section
     id="Introduction"
-    ref={handle}
+    ref={ref}
     className={`
     flex
     lg:flex-row
@@ -95,10 +74,12 @@ const Introduction : React.FC<props> = ({
                       {
                         item.split(" ").map((text,i) => {
                           if(text === "JS") return(
-                            <JSButton/>
+                            <JSButton
+                            key={idx + text}/>
                           )
                           return(
                             <span
+                            key={idx + text}
                             className={text === "MmD" ? "text-violet-500" : ""}>
                               {text}
                             </span>
@@ -173,13 +154,21 @@ const Introduction : React.FC<props> = ({
               }}
               >
                 <CallToAction
+                onClick={() => {
+                  document.getElementById("Contact")?.scrollIntoView({
+                    block : "start",
+                    behavior : "smooth"
+                  })
+                }}
                 secondary={false}
                 >
                   {json['cta-main']}
                 </CallToAction>
               </motion.div>
 
-              <motion.div
+              <motion.a
+              href={"cv/mmdjamali_resume_" + language + ".pdf"}
+              download="mmdjamali_cv"
               key={json['cta-secondary']}
               transition={{
                 delay : 2.5
@@ -201,7 +190,7 @@ const Introduction : React.FC<props> = ({
                 >
                   {json['cta-secondary']}
                 </CallToAction>
-              </motion.div>
+              </motion.a>
             </div>
         </div>
 
@@ -261,8 +250,8 @@ const Introduction : React.FC<props> = ({
             w-[10%]
             aspect-square
             '
-            color="fill-violet-600"
-            backdropColor="fill-violet-500"
+            backdropColor="fill-violet-600"
+            color="fill-violet-500"
             />
           </motion.span>
 
@@ -290,8 +279,8 @@ const Introduction : React.FC<props> = ({
             w-[15%]
             aspect-square
             '
-            color="fill-yellow-600"
-            backdropColor="fill-yellow-400"
+            backdropColor="fill-yellow-600"
+            color="fill-yellow-400"
             />
           </motion.span>
         </div>
