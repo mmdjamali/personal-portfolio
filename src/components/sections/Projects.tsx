@@ -35,7 +35,8 @@ const Projects = () => {
           description , 
           technologies ,
           image,
-          color
+          color,
+          demo
         }, idx) => {
           return(
             <div
@@ -100,6 +101,7 @@ const Projects = () => {
                 gap-2
                 ">
                   <a
+                  href={demo}
                   className="
                   after:transition-all
                   relative

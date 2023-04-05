@@ -7,7 +7,6 @@ import { motion } from 'framer-motion';
 import ThemeButton from '../others/theme-button';
 import LanguageButton from '../others/language-button';
 import { BiMenuAltRight } from "react-icons/bi"
-import { MdClose } from "react-icons/md"
 
 const Navbar = () => {
     const [show, setShow] = useState<boolean>(true)
@@ -54,6 +53,10 @@ const Navbar = () => {
     items-center
     justify-between
     py-3
+    xl:px-[128px]
+    md:px-[98px]
+    sm:px-[32px]
+    px-[16px]
     `}>
         
         <motion.div
@@ -186,6 +189,10 @@ const Navbar = () => {
         dark:text-white
         bg-white
         dark:bg-neutral-800
+        xl:px-[128px]
+        md:px-[98px]
+        sm:px-[32px]
+        px-[16px]
         '
         >
 

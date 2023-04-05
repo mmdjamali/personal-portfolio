@@ -47,14 +47,7 @@ export default function RootLayout({
 
       </head>
 
-      <body
-      className={`
-      xl:px-[128px]
-      md:px-[98px]
-      sm:px-[32px]
-      px-[16px]
-      dark:bg-neutral-800
-      `}>
+      <body>
         {
           loading ?
           <div
@@ -89,7 +82,16 @@ export default function RootLayout({
           <FixedPageLocation/>
           <SocialMedia/>
           <Navbar/>
-          {children}
+          <div
+          className={`
+          xl:px-[128px]
+          md:px-[98px]
+          sm:px-[32px]
+          px-[16px]
+          dark:bg-neutral-800
+          `}>
+            {children}
+          </div>
           </>
         }
       </body>

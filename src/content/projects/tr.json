@@ -13,7 +13,9 @@
             "color" : {
                 "backdrop" : "bg-violet-600",
                 "background" : "bg-violet-500"
-            }
+            },
+            "demo" : "https://bavard.vercel.app",
+            "github" : ""
         },
         {
             "title" : "Kişisel Portfolio",
@@ -24,7 +26,7 @@
                 "backdrop" : "bg-cyan-600",
                 "background" : "bg-cyan-500"
             },
-            "demo" : "",
+            "demo" : "https://mmdjamali.ir",
             "github" : ""
         },
         {
@@ -36,7 +38,7 @@
                 "backdrop" : "bg-green-600",
                 "background" : "bg-green-500"
             },
-            "demo" : "",
+            "demo" : "https://1stmmd-tetris.vercel.app/",
             "github" : ""
         }
     ]
