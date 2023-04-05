@@ -5,6 +5,7 @@ import Header2 from "../shared/Header2"
 import { useAppState } from "@/stores/store"
 import { useChangeSection } from "@/hooks/change-section"
 import { motion } from "framer-motion"
+import Image from "next/image"
 
 const Projects = () => {
   const { language } = useAppState()
@@ -134,6 +135,7 @@ const Projects = () => {
               flex
               relative
               lg:w-[50%]
+              w-[100%]
               `}>
 
                 <motion.div
@@ -155,17 +157,22 @@ const Projects = () => {
                 p-2
                 flex
                 relative
+                w-full
+                aspect-video
                 `}>
-                  <img
-                  className={`
+                  <div
+                  className="
+                  w-full
+                  h-full
                   relative
-                  w-[100%]
-                  aspect-video
-                  object-cover
-                  `}
-                  src={image}
-                  alt={title}
-                  />
+                  ">
+                    <Image
+                    className="object-cover"
+                    fill={true}
+                    src={image}
+                    alt={title}
+                    />
+                  </div>
                 </motion.div>
 
                 <span

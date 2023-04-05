@@ -6,17 +6,17 @@ export const useChangeSection = (section : string) => {
     const observer = useRef<IntersectionObserver | null>(null);
 
     const ref = useCallback((node : HTMLElement) => {
-        if(observer.current) observer.current.disconnect()
-    
-    observer.current = new IntersectionObserver(entries => {
-      if(entries[0].isIntersecting){
-        changeSection && changeSection(section)
-      }
-    },{
-      rootMargin: (node.offsetHeight / 2.5) * -1 + "px 0px"
-    })
+      if(observer.current) observer.current.disconnect()
+      
+      observer.current = new IntersectionObserver(entries => {
+        if(entries[0].isIntersecting){
+          changeSection && changeSection(section)
+        }
+      },{
+        rootMargin: (window.innerHeight / 3) * -1 + "px 0px"
+      })
 
-    if(node) observer.current.observe(node)
+      if(node) observer.current.observe(node)
     },[changeSection])
 
     return ref

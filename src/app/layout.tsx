@@ -46,8 +46,10 @@ export default function RootLayout({
         />
 
       </head>
-
-      <body>
+      <body
+      className={`
+      dark:bg-neutral-800
+      `}>
         {
           loading ?
           <div
@@ -88,7 +90,6 @@ export default function RootLayout({
           md:px-[98px]
           sm:px-[32px]
           px-[16px]
-          dark:bg-neutral-800
           `}>
             {children}
           </div>
