@@ -102,23 +102,68 @@ const Intro = () => {
             </div>
           </motion.h1>
         </div>
-        <p className="mt-4 text-center text-[16px] text-foreground/90">
+        <motion.p
+          transition={{
+            ease: "backInOut",
+            delay: 1.25,
+            duration: 0.5,
+          }}
+          initial={{
+            y: 100,
+            opacity: 0,
+          }}
+          animate={{
+            y: 0,
+            opacity: 1,
+          }}
+          className="mt-4 text-center text-[16px] text-foreground/90"
+        >
           {`Let me take your startup's ideas to life with engaging and interactive frontend development.`}
-        </p>
+        </motion.p>
 
         <div className="mt-8 flex w-full flex-wrap items-center justify-center gap-6 text-lg font-medium">
-          <div className="relative">
+          <motion.div
+            transition={{
+              ease: "backInOut",
+              delay: 1.75,
+              duration: 0.5,
+            }}
+            initial={{
+              x: -100,
+              opacity: 0,
+            }}
+            animate={{
+              x: 0,
+              opacity: 1,
+            }}
+            className="relative"
+          >
             <span className="absolute inset-0 bg-foreground/75" />
             <button className="z-[1] -translate-x-[3px] -translate-y-[3px] border-2 border-foreground bg-foreground px-6 py-2 text-background transition-all hover:-translate-x-1 hover:-translate-y-1 active:translate-x-[0px] active:translate-y-[0px]">
               Contact Me
             </button>
-          </div>
-          <div className="relative">
+          </motion.div>
+          <motion.div
+            transition={{
+              ease: "backInOut",
+              delay: 1.75,
+              duration: 0.5,
+            }}
+            initial={{
+              x: 100,
+              opacity: 0,
+            }}
+            animate={{
+              x: 0,
+              opacity: 1,
+            }}
+            className="relative"
+          >
             <span className="absolute inset-0 bg-foreground/75" />
             <button className="z-[1] -translate-x-[3px] -translate-y-[3px] border-2 border-foreground bg-background px-6 py-2 text-foreground transition-all hover:-translate-x-1 hover:-translate-y-1 active:translate-x-[0px] active:translate-y-[0px]">
               Download CV
             </button>
-          </div>
+          </motion.div>
         </div>
       </section>
     </div>
