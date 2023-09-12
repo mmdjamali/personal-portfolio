@@ -41,9 +41,7 @@ const TabsTrigger = React.forwardRef<
       )}
       {...props}
     >
-      <span className="rounded px-2 py-1 group-hover/container:bg-foreground/10">
-        {children}
-      </span>
+      <span>{children}</span>
     </TabsPrimitives.Trigger>
   </div>
 ));
