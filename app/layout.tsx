@@ -2,6 +2,7 @@ import { cn } from "@/lib/utils";
 import "../styles/style.css";
 import type { Metadata } from "next";
 import Providers from "@/components/providers";
+import Zoom from "@/components/zoom";
 
 export const generateMetadata = async ({}): Promise<Metadata> => ({
   title: "Mohammad Jamali | Developer",
@@ -24,6 +25,7 @@ export default function RootLayout({
         className={cn("bg-background text-sm text-foreground")}
       >
         <Providers>{children}</Providers>
+        <Zoom />
       </body>
     </html>
   );
