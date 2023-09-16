@@ -69,7 +69,7 @@ const Intro = () => {
               y: 0,
               opacity: 1,
             }}
-            className="relative w-full text-center text-4xl font-bold leading-[1.5] sm:text-6xl"
+            className="relative w-full break-words text-center text-4xl font-bold leading-[1.5] sm:text-6xl"
           >
             {"Hi! I'm "}
             <span className="relative text-violet-500">
@@ -96,9 +96,10 @@ const Intro = () => {
               </motion.span>
             </span>
             <br />{" "}
-            <div className="flex">
+            <div className="flex flex-wrap justify-center">
               <AnimatedLanguage />
-              <span>Developer&nbsp;</span>
+              <span>Developer</span>
+              <span className="hidden sm:flex">&nbsp;</span>
             </div>
           </motion.h1>
         </div>

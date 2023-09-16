@@ -8,11 +8,29 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "../ui/tabs";
 import Tech from "../tech";
 import { IconKeyType } from "@/types";
 import Language from "../language";
+import Scrollable from "../scrollable";
 
 function About() {
   return (
-    <div className="relative grid w-full items-center justify-center py-32 sm:px-12 lg:grid-cols-3">
-      <div className="relative hidden lg:flex">
+    <div className="relative grid w-full items-start justify-start py-32 sm:px-12 lg:grid-cols-3">
+      <motion.div
+        transition={{
+          duration: 0.5,
+        }}
+        initial={{
+          x: -60,
+          opacity: 0,
+        }}
+        whileInView={{
+          x: 0,
+          opacity: 1,
+        }}
+        viewport={{
+          once: true,
+          margin: "0px 0px -50% 0px",
+        }}
+        className="relative hidden lg:flex"
+      >
         <Icon name="Question" className="w-full text-foreground" />
         <Icon
           name="Question"
@@ -22,7 +40,7 @@ function About() {
           name="Question"
           className="absolute inset-0 m-auto w-[30%] -translate-x-full translate-y-[80%] -rotate-12 text-cyan-500 "
         />
-      </div>
+      </motion.div>
 
       <section
         data-name="about"
@@ -42,7 +60,7 @@ function About() {
           }}
           viewport={{
             once: true,
-            margin: "0px 0px -50% 0px",
+            margin: "0px 0px -40% 0px",
           }}
           className="relative w-full text-4xl font-bold leading-[1.5] sm:text-6xl"
         >
@@ -64,7 +82,7 @@ function About() {
           }}
           viewport={{
             once: true,
-            margin: "0px 0px -50% 0px",
+            margin: "0px 0px -40% 0px",
           }}
           className="my-4 text-[16px] text-foreground/90"
         >
@@ -85,15 +103,44 @@ function About() {
           }}
           viewport={{
             once: true,
-            margin: "0px 0px -30% 0px",
+            margin: "0px 0px -40% 0px",
           }}
         >
           <Tabs defaultValue="languages">
-            <TabsList>
-              <TabsTrigger value="languages">Languages</TabsTrigger>
-              <TabsTrigger value="p-languages">P. Languages</TabsTrigger>
-              <TabsTrigger value="frontend">Frontend</TabsTrigger>
-              <TabsTrigger value="backend">Backend</TabsTrigger>
+            <TabsList className="relative grid min-w-full max-w-full flex-shrink-0 ">
+              <Scrollable className=" gap-6 overflow-x-hidden scroll-smooth px-4">
+                <TabsTrigger
+                  value="languages"
+                  className="flex-shrink-0 overflow-x-hidden whitespace-nowrap"
+                >
+                  Languages
+                </TabsTrigger>
+
+                <TabsTrigger
+                  value="p-languages"
+                  className="flex-shrink-0 overflow-x-hidden whitespace-nowrap"
+                >
+                  P. Languages
+                </TabsTrigger>
+                <TabsTrigger
+                  value="frontend"
+                  className="flex-shrink-0 overflow-x-hidden whitespace-nowrap"
+                >
+                  Frontend
+                </TabsTrigger>
+                <TabsTrigger
+                  value="backend"
+                  className="flex-shrink-0 overflow-x-hidden whitespace-nowrap"
+                >
+                  Backend
+                </TabsTrigger>
+                <TabsTrigger
+                  value="database"
+                  className="flex-shrink-0 overflow-x-hidden whitespace-nowrap"
+                >
+                  Database
+                </TabsTrigger>
+              </Scrollable>
             </TabsList>
             <TabsContent
               className="flex flex-col gap-4 transition-none data-[state=active]:py-8 data-[state=active]:duration-500 data-[state=active]:animate-in data-[state=active]:fade-in-5 data-[state=active]:slide-in-from-bottom-14"
@@ -116,6 +163,14 @@ function About() {
               value="backend"
             >
               {backend.map((tech, idx) => {
+                return <Tech key={idx + tech.name} tech={tech} />;
+              })}
+            </TabsContent>
+            <TabsContent
+              className="flex flex-col gap-4 transition-none data-[state=active]:py-8 data-[state=active]:duration-500 data-[state=active]:animate-in data-[state=active]:fade-in-5 data-[state=active]:slide-in-from-bottom-14"
+              value="database"
+            >
+              {database.map((tech, idx) => {
                 return <Tech key={idx + tech.name} tech={tech} />;
               })}
             </TabsContent>
@@ -243,6 +298,13 @@ const backend: {
   date: string;
 }[] = [
   {
+    name: "Node",
+    backdrop: "bg-lime-500/75",
+    border: "border-lime-500",
+    color: "text-lime-500",
+    date: "2023-2-15",
+  },
+  {
     name: "Express",
     backdrop: "bg-foreground/75",
     border: "border-foreground",
@@ -251,6 +313,29 @@ const backend: {
   },
   {
     name: "Fiber",
+    backdrop: "bg-cyan-500/75",
+    border: "border-cyan-500",
+    color: "text-cyan-500",
+    date: "2023-09-05",
+  },
+];
+
+const database: {
+  name: string;
+  backdrop: string;
+  border: string;
+  color: string;
+  date: string;
+}[] = [
+  {
+    name: "MongoDB",
+    backdrop: "bg-green-500/75",
+    border: "border-green-500",
+    color: "text-green-500",
+    date: "2023-2-15",
+  },
+  {
+    name: "SQLite",
     backdrop: "bg-cyan-500/75",
     border: "border-cyan-500",
     color: "text-cyan-500",
