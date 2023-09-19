@@ -117,7 +117,7 @@ const Intro = () => {
             y: 0,
             opacity: 1,
           }}
-          className="mt-4 text-center text-[16px] text-foreground/90"
+          className="mt-4 text-center text-[16px] text-foreground/75"
         >
           {`Let me take your startup's ideas to life with engaging and interactive frontend development.`}
         </motion.p>
