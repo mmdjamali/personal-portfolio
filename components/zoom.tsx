@@ -9,7 +9,7 @@ const Zoom = () => {
       if (!("zoom" in document.body.style)) return;
 
       // don't zoom in when device in mobile or tablet.
-      if (!/Mobi/i.test(navigator.userAgent)) return;
+      if (window.matchMedia("(max-width: 720px)").matches) return;
 
       if (
         window.matchMedia("(min-height: 720px) and (max-height: 900px)").matches
