@@ -8,6 +8,9 @@ import {
   RiReactjsLine,
   RiArrowRightSLine,
   RiArrowLeftSLine,
+  RiLink,
+  RiArrowRightLine,
+  RiMagicLine,
 } from "react-icons/ri";
 import {
   FaDiscord,
@@ -28,6 +31,9 @@ export const Icons = {
   React: RiReactjsLine,
   ArrowRightS: RiArrowRightSLine,
   ArrowLeftS: RiArrowLeftSLine,
+  Link: RiLink,
+  Right: RiArrowRightLine,
+  Magic: RiMagicLine,
   Crown: (props: IconBaseProps) => (
     <svg
       viewBox="0 0 455 455"
