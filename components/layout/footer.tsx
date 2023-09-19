@@ -23,7 +23,7 @@ const Footer = () => {
               Made by{" "}
               <Link
                 className="text-foreground underline"
-                href={"https://github.com/mmdjamali.png"}
+                href={"https://github.com/mmdjamali"}
               >
                 Mohammad Jamali
               </Link>
