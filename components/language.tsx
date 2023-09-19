@@ -25,7 +25,7 @@ const Language = ({
 
       <div
         className={cn(
-          "relative z-[1] w-full -translate-x-[3px] -translate-y-[3px] cursor-pointer border-2 bg-background p-4 py-3 transition-transform hover:-translate-x-1 hover:-translate-y-1 active:-translate-x-0 active:-translate-y-0",
+          "relative z-[1] w-full -translate-x-[3px] -translate-y-[3px] cursor-pointer border-4 bg-background p-4 py-3 transition-transform hover:-translate-x-1 hover:-translate-y-1 active:-translate-x-0 active:-translate-y-0",
           border,
           color,
         )}
