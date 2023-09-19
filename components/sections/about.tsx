@@ -12,61 +12,82 @@ import Scrollable from "../scrollable";
 
 function About() {
   return (
-    <div className="relative grid w-full items-start justify-start py-32 sm:px-12 lg:grid-cols-3">
-      <motion.div
-        transition={{
-          duration: 0.5,
-        }}
-        initial={{
-          x: -60,
-          opacity: 0,
-        }}
-        whileInView={{
-          x: 0,
-          opacity: 1,
-        }}
-        viewport={{
-          once: true,
-          margin: "0px 0px -50% 0px",
-        }}
-        className="relative hidden lg:flex"
-      >
-        <Icon name="Question" className="w-full text-foreground" />
-        <Icon
-          name="Question"
-          className="absolute inset-0 m-auto w-[30%] translate-x-full translate-y-[80%] rotate-12 text-yellow-400 "
-        />
-        <Icon
-          name="Question"
-          className="absolute inset-0 m-auto w-[30%] -translate-x-full translate-y-[80%] -rotate-12 text-cyan-500 "
-        />
-      </motion.div>
+    <div className="relative grid w-full items-start justify-start py-32 sm:px-12">
+      <section data-name="about" className="flex w-full flex-col pb-10 sm:px-8">
+        <div className="relative mx-auto flex w-fit  flex-col items-center">
+          <motion.div
+            className="absolute inset-y-0 right-[calc(100%_+_16px)] top-0 my-auto hidden items-center justify-center lg:flex"
+            transition={{
+              ease: "backInOut",
+              delay: 0.5,
+              duration: 0.5,
+            }}
+            initial={{
+              x: -100,
+              opacity: 0,
+            }}
+            whileInView={{
+              x: 0,
+              opacity: 1,
+            }}
+            viewport={{
+              once: true,
+              margin: "0px 0px -40% 0px",
+            }}
+          >
+            <span className="inline h-1 w-14 bg-gradient-to-r from-transparent to-foreground" />
+            <span className="inline aspect-square h-3 bg-foreground" />
+          </motion.div>
 
-      <section
-        data-name="about"
-        className="col-span-2 flex w-full flex-col pb-10 sm:px-8"
-      >
-        <motion.h2
-          transition={{
-            duration: 0.5,
-          }}
-          initial={{
-            y: 60,
-            opacity: 0,
-          }}
-          whileInView={{
-            y: 0,
-            opacity: 1,
-          }}
-          viewport={{
-            once: true,
-            margin: "0px 0px -40% 0px",
-          }}
-          className="relative w-full text-4xl font-bold leading-[1.5] sm:text-6xl"
-        >
-          {"Who is "}
-          <span className="relative text-cyan-500">MmD?</span>
-        </motion.h2>
+          <motion.div
+            transition={{
+              ease: "backInOut",
+              delay: 0.5,
+              duration: 0.5,
+            }}
+            initial={{
+              x: 100,
+              opacity: 0,
+            }}
+            whileInView={{
+              x: 0,
+              opacity: 1,
+            }}
+            viewport={{
+              once: true,
+              margin: "0px 0px -40% 0px",
+            }}
+            className="absolute inset-y-0 left-[calc(100%_+_16px)] top-0 my-auto hidden items-center text-foreground lg:inline-flex"
+          >
+            <span className="inline aspect-square h-3 bg-foreground" />
+            <span className="inline h-1 w-14 bg-gradient-to-l from-transparent to-foreground" />
+          </motion.div>
+
+          <motion.h2
+            transition={{
+              duration: 0.5,
+            }}
+            initial={{
+              y: 60,
+              opacity: 0,
+            }}
+            whileInView={{
+              y: 0,
+              opacity: 1,
+            }}
+            viewport={{
+              once: true,
+              margin: "0px 0px -40% 0px",
+            }}
+            className="group relative w-full text-center text-4xl font-bold leading-[1.5] sm:text-6xl"
+          >
+            {"Who is "}
+            <span className="relative text-cyan-500">MmD</span>
+            <span className="relative inline-flex text-cyan-500 transition-transform duration-500 group-hover:translate-x-1 group-hover:rotate-12">
+              ?
+            </span>
+          </motion.h2>
+        </div>
 
         <motion.p
           transition={{
@@ -84,7 +105,7 @@ function About() {
             once: true,
             margin: "0px 0px -40% 0px",
           }}
-          className="my-4 text-[16px] text-foreground/90"
+          className="my-8 text-[16px] text-foreground/75 lg:px-16"
         >
           {`My name is Mohammad Jamali and I was born on July 6 of 2004, in Tabriz, a city in South Azerbaijan. I am a highly motivated and passionate front-end developer with experience building websites and web applications using frameworks such as React, Preact, and Next.`}
         </motion.p>
@@ -105,8 +126,15 @@ function About() {
             once: true,
             margin: "0px 0px -40% 0px",
           }}
+          className="grid grid-cols-1 gap-4 lg:grid-cols-5"
         >
-          <Tabs defaultValue="languages">
+          <div className="relative col-span-2 my-auto hidden aspect-square w-full lg:flex">
+            <Icon
+              name="Question"
+              className="my-auto aspect-square w-full text-foreground"
+            />
+          </div>
+          <Tabs defaultValue="languages" className="lg:col-span-3">
             <TabsList className="relative grid min-w-full max-w-full flex-shrink-0 ">
               <Scrollable className=" gap-6 overflow-x-hidden scroll-smooth px-4">
                 <TabsTrigger
@@ -342,3 +370,34 @@ const database: {
     date: "2023-09-05",
   },
 ];
+
+{
+  /* <motion.div
+transition={{
+  duration: 0.5,
+}}
+initial={{
+  x: -60,
+  opacity: 0,
+}}
+whileInView={{
+  x: 0,
+  opacity: 1,
+}}
+viewport={{
+  once: true,
+  margin: "0px 0px -50% 0px",
+}}
+className="relative hidden lg:flex"
+>
+<Icon name="Question" className="w-full text-foreground" />
+<Icon
+  name="Question"
+  className="absolute inset-0 m-auto w-[30%] translate-x-full translate-y-[80%] rotate-12 text-yellow-400 "
+/>
+<Icon
+  name="Question"
+  className="absolute inset-0 m-auto w-[30%] -translate-x-full translate-y-[80%] -rotate-12 text-cyan-500 "
+/>
+</motion.div> */
+}
