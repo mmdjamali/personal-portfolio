@@ -3,6 +3,7 @@ import "../styles/style.css";
 import type { Metadata } from "next";
 import Providers from "@/components/providers";
 import Zoom from "@/components/zoom";
+import Footer from "@/components/layout/footer";
 
 export const generateMetadata = async ({}): Promise<Metadata> => ({
   title: "Mohammad Jamali | Developer",
@@ -11,6 +12,7 @@ export const generateMetadata = async ({}): Promise<Metadata> => ({
   icons: {
     icon: "/favicon.svg",
   },
+  themeColor: "#212121",
 });
 
 export default function RootLayout({
@@ -25,6 +27,7 @@ export default function RootLayout({
         className={cn("bg-background text-sm text-foreground")}
       >
         <Providers>{children}</Providers>
+        <Footer />
         <Zoom />
       </body>
     </html>
