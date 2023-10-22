@@ -40,11 +40,7 @@ function NumberUp({ number, duration, minLen }: props) {
 
   return (
     <AnimateInOut>
-      <span
-        key={count}
-        className={`
-    `}
-      >
+      <span key={count} className="text-inherit">
         {(() => {
           const int = Math.round(count).toString();
 

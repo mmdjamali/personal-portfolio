@@ -28,7 +28,7 @@ export default function RootLayout({
       >
         <Providers>{children}</Providers>
         <Footer />
-        <Zoom />
+        {/* <Zoom /> */}
       </body>
     </html>
   );

@@ -9,12 +9,15 @@ import Tech from "../tech";
 import { IconKeyType } from "@/types";
 import Language from "../language";
 import Scrollable from "../scrollable";
+import NumberUp from "../animation/number-up";
+import { cn } from "@/lib/utils";
+import Image from "next/image";
 
 function About() {
   return (
-    <div className="relative grid w-full items-start justify-start py-32 sm:px-12">
+    <div className="relative grid w-full items-start justify-stretch py-32 sm:px-12">
       <section data-name="about" className="flex w-full flex-col pb-10 sm:px-8">
-        <div className="relative mx-auto flex w-fit  flex-col items-center">
+        <div className="relative mx-auto mb-12 flex w-fit flex-col items-center">
           <motion.div
             className="absolute inset-y-0 right-[calc(100%_+_16px)] top-0 my-auto hidden items-center justify-center lg:flex"
             transition={{
@@ -68,23 +71,23 @@ function About() {
               duration: 0.5,
             }}
             initial={{
-              y: 60,
-              opacity: 0,
+              opacity: 0.5,
             }}
             whileInView={{
-              y: 0,
               opacity: 1,
             }}
             viewport={{
               once: true,
-              margin: "0px 0px -40% 0px",
+              margin: "0px 0px -50% 0px",
             }}
             className="group relative w-full text-center text-4xl font-bold leading-[1.5] sm:text-6xl"
           >
-            {"Who is "}
-            <span className="relative text-cyan-500">MmD</span>
-            <span className="relative inline-flex text-cyan-500 transition-transform duration-500 group-hover:translate-x-1 group-hover:rotate-12">
-              ?
+            {"Who is"}
+            <span>
+              <span className="relative text-blue-500">{" MmD"}</span>
+              <span className="relative inline-flex text-blue-500 transition-transform duration-500 group-hover:translate-x-1 group-hover:rotate-12">
+                ?
+              </span>
             </span>
           </motion.h2>
         </div>
@@ -105,9 +108,86 @@ function About() {
             once: true,
             margin: "0px 0px -40% 0px",
           }}
-          className="my-8 text-[16px] text-foreground/75 lg:px-16"
+          className=" text-[16px] leading-[1.5] text-foreground/75 lg:px-16"
         >
-          {`My name is Mohammad Jamali and I was born on July 6 of 2004, in Tabriz, a city in South Azerbaijan. I am a highly motivated and passionate front-end developer with experience building websites and web applications using frameworks such as React, Preact, and Next.`}
+          {
+            "Welcome to my digital realm! I'm Mohammad Jamali, a passionate developer based in "
+          }
+          <span className="bg-teal-500 px-2 text-white">{"Tabriz, Iran"}</span>
+          {", but fell free to call me MmD(Mamad) if you perfer to."}
+        </motion.p>
+
+        <motion.p
+          transition={{
+            duration: 0.5,
+          }}
+          initial={{
+            y: 60,
+            opacity: 0,
+          }}
+          whileInView={{
+            y: 0,
+            opacity: 1,
+          }}
+          viewport={{
+            once: true,
+            margin: "0px 0px -40% 0px",
+          }}
+          className="mt-6 text-[16px] leading-[1.5] text-foreground/75 lg:px-16"
+        >
+          {
+            "Starting my career as a frontend developer, I quickly realized that my curiosity and passion for exploration couldn't be contained to just one side of the web. Determined to expand my horizons, I delved into the world of backend development, embracing the challenges it brought along. "
+          }
+          <span className="bg-indigo-500 px-2 text-white">
+            Today, I proudly wear the fullstack hat.
+          </span>
+        </motion.p>
+
+        <motion.p
+          transition={{
+            duration: 0.5,
+          }}
+          initial={{
+            y: 60,
+            opacity: 0,
+          }}
+          whileInView={{
+            y: 0,
+            opacity: 1,
+          }}
+          viewport={{
+            once: true,
+            margin: "0px 0px -40% 0px",
+          }}
+          className="mt-6 text-[16px] leading-[1.5] text-foreground/75 lg:px-16"
+        >
+          {"Just as wizards use their spells to conjure captivating magic,"}
+          <span className="bg-violet-500 px-2 text-white">
+            {
+              "I harness programming languages and cutting-edge technologies to bring your ideas to life."
+            }
+          </span>
+        </motion.p>
+
+        <motion.p
+          transition={{
+            duration: 0.5,
+          }}
+          initial={{
+            y: 60,
+            opacity: 0,
+          }}
+          whileInView={{
+            y: 0,
+            opacity: 1,
+          }}
+          viewport={{
+            once: true,
+            margin: "0px 0px -40% 0px",
+          }}
+          className="mt-6 text-[16px] leading-[1.5] text-foreground/75 lg:px-16"
+        >
+          {"Here are some technologies that I use often :"}
         </motion.p>
 
         <motion.div
@@ -124,95 +204,62 @@ function About() {
           }}
           viewport={{
             once: true,
-            margin: "0px 0px -40% 0px",
+            margin: "0px 0px -50% 0px",
           }}
-          className="grid grid-cols-1 gap-4 lg:grid-cols-5"
+          className="relative mt-8 grid w-full grid-cols-[repeat(auto-fit,minmax(280px,1fr))] gap-6 lg:px-16"
         >
-          <div className="relative col-span-2 my-auto hidden aspect-square w-full lg:flex">
-            <Icon
-              name="Question"
-              className="my-auto aspect-square w-full text-foreground"
-            />
-          </div>
-          <Tabs defaultValue="languages" className="lg:col-span-3">
-            <TabsList className="relative grid min-w-full max-w-full flex-shrink-0 ">
-              <Scrollable className=" gap-6 overflow-x-hidden scroll-smooth px-4">
-                <TabsTrigger
-                  value="languages"
-                  className="flex-shrink-0 overflow-x-hidden whitespace-nowrap"
-                >
-                  Languages
-                </TabsTrigger>
+          {often_used_tech.map(({ name, bg, border, color, date, icon }) => {
+            return (
+              <div className="relative" key={name}>
+                <div
+                  className={cn("absolute z-[1] h-full w-full opacity-75", bg)}
+                />
 
-                <TabsTrigger
-                  value="p-languages"
-                  className="flex-shrink-0 overflow-x-hidden whitespace-nowrap"
+                <div
+                  className={cn(
+                    "relative z-[2] flex h-16 w-full -translate-x-1.5 -translate-y-1.5 items-center overflow-hidden border-[6px] bg-background/95 px-4 py-2",
+                    border,
+                    color,
+                  )}
                 >
-                  P. Languages
-                </TabsTrigger>
-                <TabsTrigger
-                  value="frontend"
-                  className="flex-shrink-0 overflow-x-hidden whitespace-nowrap"
-                >
-                  Frontend
-                </TabsTrigger>
-                <TabsTrigger
-                  value="backend"
-                  className="flex-shrink-0 overflow-x-hidden whitespace-nowrap"
-                >
-                  Backend
-                </TabsTrigger>
-                <TabsTrigger
-                  value="database"
-                  className="flex-shrink-0 overflow-x-hidden whitespace-nowrap"
-                >
-                  Database
-                </TabsTrigger>
-              </Scrollable>
-            </TabsList>
-            <TabsContent
-              className="flex flex-col gap-4 transition-none data-[state=active]:py-8 data-[state=active]:duration-500 data-[state=active]:animate-in data-[state=active]:fade-in-5 data-[state=active]:slide-in-from-bottom-14"
-              value="p-languages"
-            >
-              {pLanguages.map((tech, idx) => {
-                return <Tech key={idx + tech.name} tech={tech} />;
-              })}
-            </TabsContent>
-            <TabsContent
-              className="flex flex-col gap-4 transition-none data-[state=active]:py-8 data-[state=active]:duration-500 data-[state=active]:animate-in data-[state=active]:fade-in-5 data-[state=active]:slide-in-from-bottom-14"
-              value="frontend"
-            >
-              {frontend.map((tech, idx) => {
-                return <Tech key={idx + tech.name} tech={tech} />;
-              })}
-            </TabsContent>
-            <TabsContent
-              className="flex flex-col gap-4 transition-none data-[state=active]:py-8 data-[state=active]:duration-500 data-[state=active]:animate-in data-[state=active]:fade-in-5 data-[state=active]:slide-in-from-bottom-14"
-              value="backend"
-            >
-              {backend.map((tech, idx) => {
-                return <Tech key={idx + tech.name} tech={tech} />;
-              })}
-            </TabsContent>
-            <TabsContent
-              className="flex flex-col gap-4 transition-none data-[state=active]:py-8 data-[state=active]:duration-500 data-[state=active]:animate-in data-[state=active]:fade-in-5 data-[state=active]:slide-in-from-bottom-14"
-              value="database"
-            >
-              {database.map((tech, idx) => {
-                return <Tech key={idx + tech.name} tech={tech} />;
-              })}
-            </TabsContent>
-            <TabsContent
-              className="flex flex-col gap-4 transition-none data-[state=active]:py-8 data-[state=active]:duration-500 data-[state=active]:animate-in data-[state=active]:fade-in-5 data-[state=active]:slide-in-from-bottom-14"
-              value="languages"
-            >
-              {languages.map((language, idx) => {
-                return (
-                  <Language key={idx + language.name} language={language} />
-                );
-              })}
-            </TabsContent>
-          </Tabs>
+                  <div className="flex h-fit w-full items-center gap-4 text-background">
+                    <Image
+                      src={icon}
+                      height={35}
+                      width={35}
+                      unoptimized
+                      alt={name}
+                      className="object-contain"
+                    />
+
+                    <div
+                      className={cn(
+                        "flex w-full items-center justify-between",
+                        color,
+                      )}
+                    >
+                      <span className="overflow-hidden text-ellipsis text-[16px] font-medium">
+                        {name}
+                      </span>
+                      <span className="flex items-center">
+                        +
+                        <NumberUp
+                          minLen={2}
+                          key={"test"}
+                          duration={1000}
+                          number={Math.ceil(
+                            (new Date().getTime() - new Date(date).getTime()) /
+                              2629746000,
+                          )}
+                        />
+                        <span>&nbsp; months</span>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
         </motion.div>
       </section>
     </div>
@@ -221,183 +268,44 @@ function About() {
 
 export default About;
 
-const pLanguages: {
+const often_used_tech: {
   name: string;
-  backdrop: string;
   border: string;
   color: string;
   date: string;
+  bg: string;
+  icon: string;
 }[] = [
   {
-    name: "JavaScript",
-    backdrop: "bg-yellow-500/75",
-    border: "border-yellow-500",
-    color: "text-yellow-500",
-    date: "2022-01-25",
-  },
-  {
     name: "TypeScript",
-    backdrop: "bg-blue-500/75",
+    bg: "bg-blue-500",
     border: "border-blue-500",
     color: "text-blue-500",
     date: "2022-05-15",
+    icon: "/tech-icons/devicon_typescript.svg",
   },
   {
-    name: "Go",
-    backdrop: "bg-cyan-500/75",
-    border: "border-cyan-500",
-    color: "text-cyan-500",
-    date: "2023-09-02",
-  },
-];
-
-const languages: {
-  name: string;
-  backdrop: string;
-  border: string;
-  color: string;
-  icon: IconKeyType;
-}[] = [
-  {
-    name: "English",
-    backdrop: "bg-blue-500/75",
-    border: "border-blue-500",
-    color: "text-blue-500",
-    icon: "English",
-  },
-  {
-    name: "Turkish",
-    backdrop: "bg-red-500/75",
-    border: "border-red-500",
-    color: "text-red-500",
-    icon: "Turkish",
-  },
-  {
-    name: "Azeri",
-    backdrop: "bg-green-500/75",
-    border: "border-green-500",
-    color: "text-green-500",
-    icon: "Azeri",
-  },
-  {
-    name: "Persian",
-    backdrop: "bg-yellow-500/75",
-    border: "border-yellow-500",
-    color: "text-yellow-500",
-    icon: "Persian",
-  },
-];
-
-const frontend: {
-  name: string;
-  backdrop: string;
-  border: string;
-  color: string;
-  date: string;
-}[] = [
-  {
-    name: "React",
-    backdrop: "bg-cyan-500/75",
-    border: "border-cyan-500",
-    color: "text-cyan-500",
-    date: "2022-02-2",
+    name: "Node JS",
+    bg: "bg-lime-500",
+    border: "border-lime-500",
+    color: "text-lime-500",
+    date: "2023-2-02",
+    icon: "/tech-icons/devicon_nodejs.svg",
   },
   {
     name: "Next",
-    backdrop: "bg-foreground/75",
+    bg: "bg-foreground",
     border: "border-foreground",
     color: "text-foreground",
     date: "2022-12-15",
+    icon: "/tech-icons/devicon_nextjs.svg",
   },
   {
-    name: "Svelte",
-    backdrop: "bg-orange-500/75",
-    border: "border-orange-500",
-    color: "text-orange-500",
-    date: "2022-12-15",
-  },
-];
-
-const backend: {
-  name: string;
-  backdrop: string;
-  border: string;
-  color: string;
-  date: string;
-}[] = [
-  {
-    name: "Node",
-    backdrop: "bg-lime-500/75",
-    border: "border-lime-500",
-    color: "text-lime-500",
-    date: "2023-2-15",
-  },
-  {
-    name: "Express",
-    backdrop: "bg-foreground/75",
-    border: "border-foreground",
-    color: "text-foreground",
-    date: "2023-2-15",
-  },
-  {
-    name: "Fiber",
-    backdrop: "bg-cyan-500/75",
+    name: "Tailwind CSS",
+    bg: "bg-cyan-500",
     border: "border-cyan-500",
     color: "text-cyan-500",
-    date: "2023-09-05",
-  },
-];
-
-const database: {
-  name: string;
-  backdrop: string;
-  border: string;
-  color: string;
-  date: string;
-}[] = [
-  {
-    name: "MongoDB",
-    backdrop: "bg-green-500/75",
-    border: "border-green-500",
-    color: "text-green-500",
     date: "2023-2-15",
-  },
-  {
-    name: "SQLite",
-    backdrop: "bg-cyan-500/75",
-    border: "border-cyan-500",
-    color: "text-cyan-500",
-    date: "2023-09-05",
+    icon: "/tech-icons/devicon_tailwindcss.svg",
   },
 ];
-
-{
-  /* <motion.div
-transition={{
-  duration: 0.5,
-}}
-initial={{
-  x: -60,
-  opacity: 0,
-}}
-whileInView={{
-  x: 0,
-  opacity: 1,
-}}
-viewport={{
-  once: true,
-  margin: "0px 0px -50% 0px",
-}}
-className="relative hidden lg:flex"
->
-<Icon name="Question" className="w-full text-foreground" />
-<Icon
-  name="Question"
-  className="absolute inset-0 m-auto w-[30%] translate-x-full translate-y-[80%] rotate-12 text-yellow-400 "
-/>
-<Icon
-  name="Question"
-  className="absolute inset-0 m-auto w-[30%] -translate-x-full translate-y-[80%] -rotate-12 text-cyan-500 "
-/>
-</motion.div> */
-}

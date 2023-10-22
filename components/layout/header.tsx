@@ -87,6 +87,10 @@ const Header = () => {
       )}
     >
       <header className="relative mx-auto flex h-[54px] w-full max-w-[1300px] items-center justify-between  px-6 md:px-24">
+        <button className="p-2 text-[21px] text-foreground/75 outline-none transition-all hover:text-foreground md:hidden">
+          <Icon name="Menu" />
+        </button>
+
         <motion.div
           className=""
           transition={{

@@ -22,7 +22,9 @@ const AnimateInOut = ({ children }: PropsWithChildren) => {
   if (elements.length === 1) {
     return (
       <div
-        className={cn("w-fit duration-500 animate-in slide-in-from-top-full")}
+        className={cn(
+          "w-fit text-inherit duration-500 animate-in slide-in-from-top-full",
+        )}
       >
         {elements[0].element}
       </div>
@@ -30,12 +32,12 @@ const AnimateInOut = ({ children }: PropsWithChildren) => {
   }
 
   return (
-    <div className="relative w-fit overflow-hidden">
+    <div className="relative w-fit overflow-hidden text-inherit">
       {elements.map((node, idx) => {
         return (
           <div
             className={cn(
-              "w-full duration-500 animate-in slide-in-from-top-full",
+              "w-full text-inherit duration-500 animate-in slide-in-from-top-full",
               idx === 0 ? "" : "absolute top-full",
             )}
             key={node.key + idx}

@@ -4,11 +4,6 @@ import React from "react";
 import Icon from "../icon";
 
 import { motion } from "framer-motion";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "../ui/tabs";
-import Tech from "../tech";
-import { IconKeyType } from "@/types";
-import Language from "../language";
-import Scrollable from "../scrollable";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 
@@ -67,6 +62,7 @@ function Projects() {
             <span className="inline aspect-square h-3 bg-foreground" />
             <span className="inline h-1 w-14 bg-gradient-to-l from-transparent to-foreground" />
           </motion.div>
+
           <motion.h2
             transition={{
               duration: 0.5,
@@ -83,18 +79,20 @@ function Projects() {
               once: true,
               margin: "0px 0px -40% 0px",
             }}
-            className="group relative w-full text-4xl font-bold leading-[1.5] sm:text-6xl"
+            className="group relative w-full text-center text-4xl font-bold leading-[1.5] sm:text-6xl"
           >
-            {"Let's see some "}
-            <span className="relative text-green-500">work</span>
-            <span className="relative inline-flex text-green-500 transition-transform duration-500 group-hover:translate-x-1 group-hover:rotate-12">
-              !
+            <span>{"Let's see"} </span> <br className="hidden sm:block" />
+            <span>
+              {"some"} <span className="relative text-green-500">work</span>
+              <span className="relative inline-flex text-green-500 transition-transform duration-500 group-hover:translate-x-1 group-hover:rotate-12">
+                !
+              </span>
             </span>
           </motion.h2>
         </div>
 
         <motion.div
-          className="relative mt-10 grid w-full gap-8"
+          className="relative mt-12 grid w-full gap-8"
           transition={{
             duration: 0.5,
           }}
@@ -166,9 +164,16 @@ function Projects() {
               </div>
 
               <div className="flex gap-2">
-                <a className="relative flex w-fit cursor-pointer items-center justify-center gap-1 after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:max-w-[0px] after:bg-foreground after:transition-all after:content-[''] hover:after:max-w-full">
-                  <span>demo</span>
-                  <Icon name="ArrowRightS" />
+                <a
+                  href="https://bavard.vercel.app"
+                  className="group relative flex w-fit cursor-pointer items-center justify-center gap-2 bg-foreground px-4 py-2 font-medium text-background transition-colors hover:bg-blue-500"
+                >
+                  <span>Try it out</span>
+
+                  <Icon
+                    name="Right"
+                    className="text-[18px] transition-transform duration-500 group-hover:-rotate-45"
+                  />
                 </a>
               </div>
             </div>
@@ -177,13 +182,7 @@ function Projects() {
           <div
             className={`relative flex flex-col items-center justify-between gap-6 lg:flex-row-reverse lg:gap-12`}
           >
-            <div
-              className={`
-              relative
-              flex
-              w-full
-              `}
-            >
+            <div className={`relative flex w-full`}>
               <motion.div
                 initial={{
                   y: 0,
@@ -202,13 +201,7 @@ function Projects() {
                   "bg-red-500",
                 )}
               >
-                <div
-                  className="
-                  relative
-                  h-full
-                  w-full
-                  "
-                >
+                <div className="relative h-full w-full">
                   <Image
                     unoptimized
                     className="object-cover"
@@ -241,9 +234,16 @@ function Projects() {
               </div>
 
               <div className="flex gap-2">
-                <a className="relative flex w-fit cursor-pointer items-center justify-center gap-1 after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:max-w-[0px] after:bg-foreground after:transition-all after:content-[''] hover:after:max-w-full">
-                  <span>demo</span>
-                  <Icon name="ArrowRightS" />
+                <a
+                  href="https://bavard.vercel.app"
+                  className="group relative flex w-fit cursor-pointer items-center justify-center gap-2 bg-foreground px-4 py-2 text-background transition-colors hover:bg-red-500"
+                >
+                  <span>Try it out</span>
+
+                  <Icon
+                    name="Right"
+                    className="text-[18px] transition-transform duration-500 group-hover:-rotate-45"
+                  />
                 </a>
               </div>
             </div>
@@ -252,13 +252,7 @@ function Projects() {
           <div
             className={`relative flex flex-col items-center justify-between gap-6 lg:flex-row lg:gap-12`}
           >
-            <div
-              className={`
-              relative
-              flex
-              w-full
-              `}
-            >
+            <div className={`relative flex w-full`}>
               <motion.div
                 initial={{
                   y: 0,
@@ -277,13 +271,7 @@ function Projects() {
                   "bg-green-500",
                 )}
               >
-                <div
-                  className="
-                  relative
-                  h-full
-                  w-full
-                  "
-                >
+                <div className="relative h-full w-full">
                   <Image
                     unoptimized
                     className="object-cover"
@@ -316,9 +304,16 @@ function Projects() {
               </div>
 
               <div className="flex gap-2">
-                <a className="relative flex w-fit cursor-pointer items-center justify-center gap-1 after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:max-w-[0px] after:bg-foreground after:transition-all after:content-[''] hover:after:max-w-full">
-                  <span>demo</span>
-                  <Icon name="ArrowRightS" />
+                <a
+                  href="https://bavard.vercel.app"
+                  className="group relative flex w-fit cursor-pointer items-center justify-center gap-2 bg-foreground px-4 py-2 text-background transition-colors hover:bg-green-500"
+                >
+                  <span>Try it out</span>
+
+                  <Icon
+                    name="Right"
+                    className="text-[18px] transition-transform duration-500 group-hover:-rotate-45"
+                  />
                 </a>
               </div>
             </div>

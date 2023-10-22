@@ -16,6 +16,8 @@ const config: Config = {
     },
     extend: {
       colors: {
+        black: "rgb(31 31 31 / <alpha-value>)",
+        white: "rgb(255 255 255 / <alpha-value>)",
         foreground: "rgb(var(--foreground) / <alpha-value>)",
         background: "rgb(var(--background) / <alpha-value>)",
         border: "rgb(var(--border) / <alpha-value>)",
