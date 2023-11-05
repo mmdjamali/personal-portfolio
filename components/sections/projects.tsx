@@ -32,7 +32,7 @@ function Projects() {
             }}
             viewport={{
               once: true,
-              margin: "0px 0px -40% 0px",
+              margin: "0px 0px -25% 0px",
             }}
           >
             <span className="inline h-1 w-14 bg-gradient-to-r from-transparent to-foreground" />
@@ -55,7 +55,7 @@ function Projects() {
             }}
             viewport={{
               once: true,
-              margin: "0px 0px -40% 0px",
+              margin: "0px 0px -25% 0px",
             }}
             className="absolute inset-y-0 left-[calc(100%_+_16px)] top-0 my-auto hidden items-center text-foreground lg:inline-flex"
           >
@@ -77,7 +77,7 @@ function Projects() {
             }}
             viewport={{
               once: true,
-              margin: "0px 0px -40% 0px",
+              margin: "0px 0px -25% 0px",
             }}
             className="group relative w-full text-center text-4xl font-bold leading-[1.5] sm:text-6xl"
           >
@@ -106,7 +106,7 @@ function Projects() {
           }}
           viewport={{
             once: true,
-            margin: "0px 0px -40% 0px",
+            margin: "0px 0px -25% 0px",
           }}
         >
           <div

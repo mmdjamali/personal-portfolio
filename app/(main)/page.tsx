@@ -1,5 +1,6 @@
 import Quote from "@/components/quote";
 import About from "@/components/sections/about";
+import ContactMe from "@/components/sections/contact-me";
 import Intro from "@/components/sections/intro";
 import Projects from "@/components/sections/projects";
 
@@ -22,6 +23,13 @@ export default function Home() {
         />
 
         <Projects />
+
+        <Quote
+          by="Carl rogers"
+          quote="The only person who is educated is the one who learned how to learn and change"
+        />
+
+        <ContactMe />
       </main>
     </div>
   );
