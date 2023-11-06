@@ -10,7 +10,7 @@ export const generateMetadata = async ({}): Promise<Metadata> => ({
   description: "Personal portfolio of self-taught developer Mohammad Jamali",
   publisher: "Mohammad Jamali",
   icons: {
-    icon: "/favicon.svg",
+    icon: "/crown.svg",
   },
   themeColor: "#212121",
 });
@@ -23,8 +23,10 @@ export default function RootLayout({
   return (
     <html>
       <body
-        style={{ margin: "0px !important" }}
-        className={cn("bg-background text-sm text-foreground")}
+        className={cn(
+          "overflow-y-scroll",
+          "bg-background text-sm text-foreground",
+        )}
       >
         <Providers>{children}</Providers>
         <Footer />

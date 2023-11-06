@@ -15,7 +15,7 @@ import Header from "@/components/layout/header";
 
 const Layout = ({ children }: PropsWithChildren) => {
   return (
-    <div className="relative flex w-full flex-col">
+    <div className="relative flex min-h-screen flex-col">
       <SocialMedias />
       <ScrollPosition />
 

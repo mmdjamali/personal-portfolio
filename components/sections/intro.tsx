@@ -120,7 +120,7 @@ const Intro = () => {
           }}
           className="mt-8 text-center text-[16px] text-foreground/75"
         >
-          {`Let's bring your ideas to life with engaging and interactive development skills!`}
+          {`Let's bring your ideas to life with magic like development skills!`}
         </motion.p>
 
         <div className="mt-12 flex w-full flex-wrap items-center justify-center gap-6 text-lg font-medium">

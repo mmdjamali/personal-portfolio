@@ -18,7 +18,7 @@ const MainNav = ({ items }: MainNavProps) => {
   const [position, setPosition] = useState("intro");
 
   useEffect(() => {
-    document.onscroll = (e) => {
+    const handle = (e: Event) => {
       const center = {
         y: innerHeight / 2,
         x: innerWidth / 2,
@@ -34,9 +34,10 @@ const MainNav = ({ items }: MainNavProps) => {
 
       setPosition(name);
     };
+    document.addEventListener("scroll", handle);
 
     return () => {
-      document.onscroll = null;
+      document.removeEventListener("scroll", handle);
     };
   }, [position]);
 

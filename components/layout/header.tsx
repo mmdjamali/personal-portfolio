@@ -9,6 +9,7 @@ import ThemeChanger from "../theme-changer";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { useEffect, useState } from "react";
+import MobileNav from "./mobile-nav";
 
 const Header = () => {
   const [show, setShow] = useState<boolean>(true);
@@ -27,7 +28,7 @@ const Header = () => {
       }
 
       // hide the navbar if it's visible and user scrolled down
-      if (window.scrollY > lastY + 100) {
+      if (window.scrollY > lastY + 500) {
         setShow(false);
         lastY = scrollY;
       }
@@ -55,9 +56,6 @@ const Header = () => {
       let { scrollTop } = document.scrollingElement;
 
       // if scrollTop is 0 hide border
-
-      console.log();
-
       if (scrollTop === 0) {
         setShowBorder(false);
         return;
@@ -87,9 +85,7 @@ const Header = () => {
       )}
     >
       <header className="relative mx-auto flex h-[54px] w-full max-w-[1300px] items-center justify-between  px-6 md:px-24">
-        <button className="p-2 text-[21px] text-foreground/75 outline-none transition-all hover:text-foreground md:hidden">
-          <Icon name="Menu" />
-        </button>
+        <MobileNav items={siteConfig.items} />
 
         <motion.div
           className=""

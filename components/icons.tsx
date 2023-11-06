@@ -16,6 +16,7 @@ import {
   RiMailLine,
   RiMenu2Line,
   RiDiscordLine,
+  RiCloseLine,
 } from "react-icons/ri";
 import {
   FaDiscord,
@@ -43,6 +44,7 @@ export const Icons = {
   Mail: RiMailLine,
   Menu: RiMenu2Line,
   Discrod: RiDiscordLine,
+  Close: RiCloseLine,
   Crown: (props: IconBaseProps) => (
     <svg
       viewBox="0 0 455 455"

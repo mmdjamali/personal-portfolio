@@ -9,7 +9,10 @@ import Image from "next/image";
 function ContactMe() {
   return (
     <div className="relative grid w-full items-start justify-stretch py-32 sm:px-12">
-      <section data-name="about" className="flex w-full flex-col pb-10 sm:px-8">
+      <section
+        data-name="contact"
+        className="flex w-full flex-col pb-10 sm:px-8"
+      >
         <div className="relative mx-auto mb-12 flex w-fit flex-col items-center">
           <motion.div
             className="absolute inset-y-0 right-[calc(100%_+_16px)] top-0 my-auto hidden items-center justify-center lg:flex"
