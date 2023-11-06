@@ -81,7 +81,7 @@ function ContactMe() {
             className="group relative w-full text-center text-4xl font-bold leading-[1.5] sm:text-6xl"
           >
             {"Contact"}
-            <span>
+            <span className="whitespace-nowrap">
               <span className="relative text-rose-500">{" MmD"}</span>
               <span className="relative inline-flex text-rose-500 transition-transform duration-500 group-hover:translate-x-1 group-hover:rotate-12">
                 !

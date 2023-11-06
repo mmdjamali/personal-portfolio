@@ -1,17 +1,10 @@
-"use client";
-
 import { PropsWithChildren } from "react";
 
-import Icon from "@/components/icon";
-import Link from "next/link";
-import MainNav from "@/components/layout/main-nav";
-import { siteConfig } from "@/config";
-import ThemeChanger from "@/components/theme-changer";
 import SocialMedias from "@/components/social-medias";
 import ScrollPosition from "@/components/scroll-position";
 
-import { motion } from "framer-motion";
 import Header from "@/components/layout/header";
+import Footer from "@/components/layout/footer";
 
 const Layout = ({ children }: PropsWithChildren) => {
   return (
@@ -22,6 +15,7 @@ const Layout = ({ children }: PropsWithChildren) => {
       <Header />
 
       {children}
+      <Footer />
     </div>
   );
 };

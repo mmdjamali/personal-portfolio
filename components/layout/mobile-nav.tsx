@@ -55,7 +55,7 @@ const MobileNav = ({ items }: Props) => {
       <DrawerPortal>
         <DrawerOverlay className="bg-background/50" />
         <DrawerContent
-          className="z-[99] flex h-screen w-[min(420px_,_100%)] bg-background shadow-[0px_0px_30px] shadow-foreground/20"
+          className="z-[99] flex h-screen w-full bg-background shadow-[0px_0px_30px] shadow-foreground/20 sm:w-[min(420px_,_100%)]"
           side="left"
         >
           <div className="relative flex h-full w-full flex-col">

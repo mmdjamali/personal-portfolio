@@ -194,7 +194,7 @@ function About() {
 
         <div
           ref={ref}
-          className="relative mt-8 grid w-full grid-cols-[repeat(auto-fit,minmax(280px,1fr))] gap-6 lg:px-16"
+          className="relative mt-8 grid w-full grid-cols-[repeat(auto-fit,minmax(min(280px_,_100%),1fr))] gap-6 lg:px-16"
         >
           {often_used_tech.map(
             ({ name, bg, border, color, date, icon }, idx) => {
@@ -203,6 +203,7 @@ function About() {
                   transition={{
                     duration: 0.5,
                     delay: idx * 0.3 + 0.5,
+                    ease: "backInOut",
                   }}
                   initial={{
                     y: 60,
@@ -245,14 +246,15 @@ function About() {
 
                       <div
                         className={cn(
-                          "flex w-full items-center justify-between",
+                          "flex w-full items-center justify-between overflow-hidden",
                           color,
                         )}
                       >
-                        <span className="overflow-hidden text-ellipsis text-[16px] font-medium">
+                        <span className="overflow-hidden text-ellipsis whitespace-nowrap text-[16px] font-medium">
                           {name}
                         </span>
-                        <span className="flex items-center">
+
+                        <span className="flex items-center overflow-hidden text-ellipsis whitespace-nowrap">
                           +
                           <NumberUp
                             minLen={2}

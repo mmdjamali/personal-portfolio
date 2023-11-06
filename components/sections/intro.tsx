@@ -141,7 +141,7 @@ const Intro = () => {
             className="relative"
           >
             <span className="absolute inset-0 bg-foreground/75" />
-            <button className="z-[1] -translate-x-[3px] -translate-y-[3px] border-4 border-foreground bg-foreground px-6 py-2 text-background transition-all hover:-translate-x-1 hover:-translate-y-1 active:translate-x-[0px] active:translate-y-[0px]">
+            <button className="z-[1] -translate-x-[3px] -translate-y-[3px] border-4 border-foreground bg-foreground px-6 py-2 text-background transition-all duration-300 hover:-translate-x-1 hover:-translate-y-1 active:translate-x-[0px] active:translate-y-[0px]">
               Contact Me
             </button>
           </motion.div>
@@ -163,7 +163,7 @@ const Intro = () => {
             className="relative"
           >
             <span className="absolute inset-0 bg-foreground/75" />
-            <button className="z-[1] -translate-x-[3px] -translate-y-[3px] border-4 border-foreground bg-background px-6 py-2 text-foreground transition-all hover:-translate-x-1 hover:-translate-y-1 active:translate-x-[0px] active:translate-y-[0px]">
+            <button className="z-[1] -translate-x-[3px] -translate-y-[3px] border-4 border-foreground bg-background px-6 py-2 text-foreground transition-all duration-300 hover:-translate-x-1 hover:-translate-y-1 active:translate-x-[0px] active:translate-y-[0px]">
               Download CV
             </button>
           </motion.div>
