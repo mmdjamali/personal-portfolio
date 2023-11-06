@@ -1,4 +1,6 @@
-import { clsx, ClassValue } from "clsx";
-import { twMerge } from "tailwind-merge";
+import { clsx, type ClassArray } from "clsx"
+import { twMerge } from "tailwind-merge"
 
-export const cn = (...inputs: ClassValue[]) => twMerge(clsx(inputs));
+export const cn = (...inputs: ClassArray) => twMerge(clsx(inputs))
+
+export const joinStrings = (...inputs: string[]) => inputs.join("")
