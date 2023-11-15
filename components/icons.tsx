@@ -19,6 +19,12 @@ import {
   RiCloseLine,
   RiDashboardLine,
   RiDashboardFill,
+  RiBook2Line,
+  RiBook2Fill,
+  RiImage2Line,
+  RiAddBoxLine,
+  RiAddBoxFill,
+  RiPencilLine,
 } from "react-icons/ri";
 import {
   FaDiscord,
@@ -49,6 +55,12 @@ export const Icons = {
   Close: RiCloseLine,
   DashboardLine: RiDashboardLine,
   DashboardFill: RiDashboardFill,
+  BookLine: RiBook2Line,
+  BookFill: RiBook2Fill,
+  ImageLine: RiImage2Line,
+  AddBoxLine: RiAddBoxLine,
+  AddBoxFill: RiAddBoxFill,
+  Pencil: RiPencilLine,
   Crown: (props: IconBaseProps) => (
     <svg
       viewBox="0 0 455 455"
