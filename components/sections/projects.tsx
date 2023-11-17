@@ -160,7 +160,7 @@ function Projects() {
               <p className="text-foreground/75">testing</p>
 
               <div className="flex gap-2 font-medium">
-                <Icon name="Go" className="h-[21px]" />
+                <Icon name="Circle" className="h-[21px]" />
               </div>
 
               <div className="flex gap-2">
@@ -230,7 +230,7 @@ function Projects() {
               <p className="text-foreground/75">testing</p>
 
               <div className="flex gap-2 font-medium">
-                <Icon name="Go" className="h-[21px]" />
+                <Icon name="Circle" className="h-[21px]" />
               </div>
 
               <div className="flex gap-2">
@@ -300,7 +300,7 @@ function Projects() {
               <p className="text-foreground/75">testing</p>
 
               <div className="flex gap-2 font-medium">
-                <Icon name="Go" className="h-[21px]" />
+                <Icon name="Circle" className="h-[21px]" />
               </div>
 
               <div className="flex gap-2">
