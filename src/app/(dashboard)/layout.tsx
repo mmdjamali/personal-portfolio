@@ -63,7 +63,7 @@ const Layout = ({ children }: React.PropsWithChildren) => {
 
           <DashboardNav
             routes={routes}
-            className={"h-[calc(100vh_-_56px)] w-fit gap-1 px-5 md:w-full"}
+            className={"h-[calc(100svh_-_56px)] w-fit gap-1 px-5 md:w-full"}
           />
         </div>
 
@@ -104,7 +104,7 @@ const Layout = ({ children }: React.PropsWithChildren) => {
                     <DashboardNav
                       routes={routes}
                       className={
-                        "h-[calc(100vh_-_56px)] w-full gap-1 px-5 md:w-full"
+                        "h-[calc(100svh_-_56px)] w-full gap-1 px-5 md:w-full"
                       }
                     />
                   </DrawerContent>

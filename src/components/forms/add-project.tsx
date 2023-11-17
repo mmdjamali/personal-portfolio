@@ -5,13 +5,14 @@ import Icon from "../icon";
 import Button from "../ui/button";
 import Input from "../ui/input";
 import Image from "next/image";
+import { turnFileIntoBase64 } from "@/lib/utils";
 
 const AddProject = () => {
   const [image, setImage] = useState<string>("");
 
   return (
     <>
-      <div className="relative flex w-full flex-col gap-8">
+      <div className="relative flex w-full flex-col gap-4 lg:gap-8">
         <div className="relative flex w-full flex-col gap-5 bg-background p-6">
           <h2 className="text-lg font-semibold">Thumbnail</h2>
 
@@ -22,7 +23,6 @@ const AddProject = () => {
             <button
               onClick={(e) => {
                 if (image) {
-                  e.stopPropagation();
                   setImage("");
                 }
               }}
@@ -30,13 +30,16 @@ const AddProject = () => {
             >
               <Icon
                 name={!image ? "Pencil" : "Close"}
-                className="text-[18px]"
+                className="pointer-events-none text-[18px]"
               />
             </button>
 
             {image ? (
               <Image
-                className="object-cover"
+                onClick={(e) => {
+                  e.stopPropagation();
+                }}
+                className="z-[1] object-cover"
                 alt="thumbnail"
                 src={image}
                 fill
@@ -47,7 +50,7 @@ const AddProject = () => {
             )}
 
             <input
-              onChange={(e) => {
+              onChange={async (e) => {
                 const file = e.target.files?.[0];
 
                 if (!file) {
@@ -55,16 +58,15 @@ const AddProject = () => {
                   return;
                 }
 
-                const fileReader = new FileReader();
-                fileReader.readAsDataURL(file);
+                setImage(await turnFileIntoBase64(file));
 
-                fileReader.onload = () => {
-                  setImage(fileReader.result?.toString() ?? "");
-                };
+                // const data = new FormData();
+                // data.append("file", file);
 
-                fileReader.onerror = () => {
-                  console.error("something went wrong");
-                };
+                // await fetch("/api/v1/file-upload", {
+                //   method: "POST",
+                //   body: data,
+                // });
               }}
               id="thumbnail"
               className="hidden"
@@ -81,7 +83,7 @@ const AddProject = () => {
         </div>
       </div>
 
-      <div className="relative flex w-full flex-col gap-8">
+      <div className="relative flex w-full flex-col gap-4 lg:gap-8">
         <div className="relative flex w-full flex-col gap-5 bg-background p-6">
           <h2 className="text-lg font-semibold">General</h2>
 
