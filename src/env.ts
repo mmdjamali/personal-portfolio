@@ -3,15 +3,13 @@ import { z } from "zod"
 
 export const env = createEnv({
     server: {
-        SUPABASE_KEY: z.string(),
-        SUPABASE_URL: z.string().url(),
         MONGO_URL: z.string().url(),
     },
     client: {
+        NEXT_PUBLIC_BACKEND_URL: z.string()
     },
     runtimeEnv: {
-        SUPABASE_KEY: process.env.SUPABASE_KEY,
-        SUPABASE_URL: process.env.SUPABASE_URL,
         MONGO_URL: process.env.MONGO_URL,
+        NEXT_PUBLIC_BACKEND_URL: process.env.NEXT_PUBLIC_BACKEND_URL
     }
 })
