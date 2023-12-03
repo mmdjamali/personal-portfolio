@@ -17,6 +17,7 @@ import { cn, joinStrings } from "@/lib/utils";
 
 import { ApiResponse } from "@/types/api";
 import Icon from "./icon";
+import { env } from "@/env";
 
 // import Confetti from "js-confetti";
 
@@ -71,18 +72,21 @@ const AdminLogin = () => {
     setLoading(true);
 
     try {
-      const res: ApiResponse<null> = await fetch("/api/v1/auth", {
-        method: "POST",
-        mode: "cors",
-        credentials: "include",
-        headers: {
-          "Content-Type": "application/json",
+      const res: ApiResponse<null> = await fetch(
+        joinStrings(env.NEXT_PUBLIC_BACKEND_URL, "/api/auth"),
+        {
+          method: "POST",
+          mode: "cors",
+          credentials: "include",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            email,
+            digits: otp.join(""),
+          }),
         },
-        body: JSON.stringify({
-          email,
-          digits: otp.join(""),
-        }),
-      }).then((res) => res?.json());
+      ).then((res) => res?.json());
 
       if (!res?.success) {
         setLoading(false);
@@ -148,18 +152,21 @@ const AdminLogin = () => {
     setLoading(true);
 
     try {
-      const res: ApiResponse<null> = await fetch("/api/v1/auth/validate", {
-        method: "POST",
-        mode: "cors",
-        credentials: "include",
-        headers: {
-          "Content-Type": "application/json",
+      const res: ApiResponse<null> = await fetch(
+        joinStrings(env.NEXT_PUBLIC_BACKEND_URL, "/api/auth/validate"),
+        {
+          method: "POST",
+          mode: "cors",
+          credentials: "include",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            email,
+            digits: otp.join(""),
+          }),
         },
-        body: JSON.stringify({
-          email,
-          digits: otp.join(""),
-        }),
-      }).then((res) => res?.json());
+      ).then((res) => res?.json());
 
       if (!res?.success) {
         setLoading(false);
@@ -186,6 +193,10 @@ const AdminLogin = () => {
 
     setLoading(false);
     setSuccess(true);
+
+    setTimeout(() => {
+      router.push("/dashboard");
+    }, 1000);
 
     // const conf = new Confetti();
 
