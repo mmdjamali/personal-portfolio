@@ -2,6 +2,7 @@ import { cn } from "@/lib/utils";
 import "../styles/style.css";
 import type { Metadata } from "next";
 import Providers from "@/components/providers";
+import { Toaster } from "@/components/ui/toaster";
 
 export const generateMetadata = async ({}): Promise<Metadata> => ({
   title: "Mohammad Jamali | Developer",
@@ -27,6 +28,7 @@ export default function RootLayout({
         )}
       >
         <Providers>{children}</Providers>
+        <Toaster />
         {/* <Zoom /> */}
       </body>
     </html>
