@@ -11,6 +11,10 @@
     height: 100%;
     font-family: Poppins, "Noto Sans Arabic", Inter;
   }
+
+  * {
+    font-family: Poppins, "Noto Sans Arabic", Inter;
+  }
 }
 
 @layer utilities {
