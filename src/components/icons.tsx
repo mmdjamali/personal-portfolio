@@ -25,6 +25,11 @@ import {
   RiAddBoxLine,
   RiAddBoxFill,
   RiPencilLine,
+  RiSearchLine,
+  RiArrowDownSLine,
+  RiCheckboxCircleLine,
+  RiErrorWarningLine,
+  RiCalendarLine,
 } from "react-icons/ri";
 import {
   FaDiscord,
@@ -45,6 +50,7 @@ export const Icons = {
   React: RiReactjsLine,
   ArrowRightS: RiArrowRightSLine,
   ArrowLeftS: RiArrowLeftSLine,
+  ArrowDownS: RiArrowDownSLine,
   Link: RiLink,
   Right: RiArrowRightLine,
   Magic: RiMagicLine,
@@ -61,6 +67,10 @@ export const Icons = {
   AddBoxLine: RiAddBoxLine,
   AddBoxFill: RiAddBoxFill,
   Pencil: RiPencilLine,
+  Search: RiSearchLine,
+  CheckboxCircle: RiCheckboxCircleLine,
+  ErrorWarning: RiErrorWarningLine,
+  Calender: RiCalendarLine,
   Crown: (props: IconBaseProps) => (
     <svg
       viewBox="0 0 455 455"
