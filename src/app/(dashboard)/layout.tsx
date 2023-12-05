@@ -46,6 +46,23 @@ const Layout = ({ children }: React.PropsWithChildren) => {
         },
       ],
     },
+    {
+      title: "TECHNOLOGY MANAGEMENT",
+      items: [
+        {
+          path: "/dashboard/technologies",
+          icon: "BookLine",
+          iconFill: "BookFill",
+          title: "Technologies",
+        },
+        {
+          path: "/dashboard/add-technology",
+          icon: "AddBoxLine",
+          iconFill: "AddBoxFill",
+          title: "Add Technology",
+        },
+      ],
+    },
   ] satisfies RouteType[];
   return (
     <div className="block">
