@@ -1,7 +1,9 @@
 "use client";
 
 import { cn } from "@/lib/utils";
+import { IconKeyType } from "@/types";
 import React, { useId } from "react";
+import Icon from "../icon";
 interface props extends React.ComponentPropsWithoutRef<"input"> {
   inputClassName?: string;
   variant?: "outlined";
@@ -12,6 +14,7 @@ interface props extends React.ComponentPropsWithoutRef<"input"> {
   actions?: React.ReactNode[];
   label?: string;
   description?: string;
+  icon?: IconKeyType;
 }
 
 const Input = React.forwardRef<React.ElementRef<"input">, props>(
@@ -28,6 +31,7 @@ const Input = React.forwardRef<React.ElementRef<"input">, props>(
       label,
       required,
       description,
+      icon,
       ...props
     },
     ref,
@@ -67,7 +71,7 @@ const Input = React.forwardRef<React.ElementRef<"input">, props>(
 
         <div
           className={cn(
-            "relative flex h-10 w-full items-center border border-foreground/10 px-3 text-[14px] transition-all hover:border-foreground/50",
+            "relative flex h-10 w-full items-center gap-3 border border-foreground/10 px-3 text-[14px] transition-all hover:border-foreground/50",
             variants[variant]["shared"],
             variants[variant][color],
             success ? variants[variant]["success"] : "",
@@ -75,6 +79,10 @@ const Input = React.forwardRef<React.ElementRef<"input">, props>(
             className,
           )}
         >
+          {icon ? (
+            <Icon className="h-[21px] shrink-0 text-[21px]" name={icon} />
+          ) : null}
+
           <input
             id={ID}
             ref={ref}

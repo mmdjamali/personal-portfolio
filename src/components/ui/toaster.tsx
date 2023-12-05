@@ -9,7 +9,7 @@ export function Toaster() {
       richColors
       position="top-right"
       className="relative z-[9999]"
-      duration={1000000}
+      duration={5000}
     />
   );
 }
