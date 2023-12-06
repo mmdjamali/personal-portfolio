@@ -11,7 +11,7 @@ export type ApiResponse<T> =
         data: T;
     };
 
-type PaginatedData<T> = {
+export type PaginatedData<T> = {
     items: T;
     pageIndex: number;
     hasNextPage: boolean;
