@@ -36,7 +36,7 @@ const SelectDate = ({ onChange, value }: Props) => {
 
       <Popover.Content
         align="start"
-        className="z-[999] flex flex-col gap-4 bg-background p-4 shadow-[0px_0px_30px_0px] shadow-foreground/10 data-[state=closed]:duration-300 data-[state=open]:duration-300 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:slide-out-to-top-4 data-[state=open]:slide-in-from-top-4"
+        className="z-[999] flex flex-col gap-4 bg-background p-4 shadow-[0px_0px_30px_0px] shadow-foreground/10"
       >
         <div className="flex items-center justify-between gap-4">
           <button

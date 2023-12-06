@@ -27,7 +27,8 @@ const SelectColor = ({ onChange, value }: Props) => {
         </Button>
       </DropdownMenu.Trigger>
 
-      <DropdownMenu.Content className="z-[100] mt-1 max-h-80 w-[var(--radix-dropdown-menu-trigger-width)] overflow-y-auto bg-background py-2 shadow-[0px_0px_30px_0px] shadow-foreground/10 data-[state=closed]:duration-300 data-[state=open]:duration-300 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:slide-out-to-top-4 data-[state=open]:slide-in-from-top-4">
+      <DropdownMenu.Content className="z-[100] mt-1 max-h-80 w-[var(--radix-dropdown-menu-trigger-width)] overflow-y-auto bg-background shadow-[0px_0px_30px_0px] shadow-foreground/10">
+        <div className="sticky top-0 flex h-2 w-full bg-background"></div>
         {(Object.keys(colors) as ColorKeys[]).map((v) => {
           const color = colors[v as ColorKeys];
 
@@ -48,6 +49,7 @@ const SelectColor = ({ onChange, value }: Props) => {
             </DropdownMenu.DropdownMenuItem>
           );
         })}
+        <div className="sticky bottom-0 flex h-2 w-full bg-background"></div>
       </DropdownMenu.Content>
     </DropdownMenu.Root>
   );

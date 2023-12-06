@@ -19,7 +19,7 @@ const UsedOftenInput = ({ onChange, value }: Props) => {
         </Button>
       </DropdownMenu.Trigger>
 
-      <DropdownMenu.Content className="z-[100] mt-1 w-[var(--radix-dropdown-menu-trigger-width)] bg-background py-2 shadow-[0px_0px_30px_0px] shadow-foreground/10 data-[state=closed]:duration-300 data-[state=open]:duration-300 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:slide-out-to-top-4 data-[state=open]:slide-in-from-top-4">
+      <DropdownMenu.Content className="z-[100] mt-1 w-[var(--radix-dropdown-menu-trigger-width)] bg-background py-2 shadow-[0px_0px_30px_0px] shadow-foreground/10">
         {([true, false] as const).map((v, idx) => {
           return (
             <DropdownMenu.DropdownMenuItem
