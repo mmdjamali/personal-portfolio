@@ -63,6 +63,14 @@ export const colors = {
         "text/75": "text-cyan-500/75",
         "hover:text/75": "hover:text-cyan-500/75",
     },
+    "lime": {
+        "bg": "bg-lime-500",
+        "bg/90": "bg-lime-500/90",
+        "text": "text-lime-500",
+        "text/90": "text-lime-500/90",
+        "text/75": "text-lime-500/75",
+        "hover:text/75": "hover:text-lime-500/75",
+    },
     "foreground": {
         "bg": "bg-foreground",
         "bg/90": "bg-foreground/90",
