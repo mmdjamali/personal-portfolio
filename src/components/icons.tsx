@@ -30,6 +30,8 @@ import {
   RiCheckboxCircleLine,
   RiErrorWarningLine,
   RiCalendarLine,
+  RiDeleteBinLine,
+  RiCheckLine,
 } from "react-icons/ri";
 import {
   FaDiscord,
@@ -71,6 +73,8 @@ export const Icons = {
   CheckboxCircle: RiCheckboxCircleLine,
   ErrorWarning: RiErrorWarningLine,
   Calender: RiCalendarLine,
+  DeleteBin: RiDeleteBinLine,
+  Check: RiCheckLine,
   Crown: (props: IconBaseProps) => (
     <svg
       viewBox="0 0 455 455"
