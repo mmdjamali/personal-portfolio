@@ -31,8 +31,6 @@ const refresh_token = async () => {
 
     const { data } = await res.json();
 
-    console.log(data)
-
     if (!data?.accessToken) return;
 
     dispatch(data.accessToken);
