@@ -210,8 +210,8 @@ const AddTechnology = () => {
           </div>
 
           <span className="mt-1 text-xs text-foreground/50">
-            Set a color for this project if you want to display it as recently
-            used.
+            Set a color for this technology if you want to display it as
+            recently used.
           </span>
         </div>
       </div>
