@@ -28,7 +28,7 @@ const Button = React.forwardRef<React.ComponentRef<"button">, ButtonProps>(
       }}
       ref={ref}
       className={cn(
-        "h-10 px-5 font-medium",
+        "flex h-10 items-center justify-center gap-3 px-5 font-medium",
         className,
         loading ? "pointer-events-none opacity-75" : "",
       )}
