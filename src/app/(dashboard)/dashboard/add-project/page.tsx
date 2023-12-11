@@ -1,4 +1,4 @@
-import AddProject from "@/components/forms/add-project";
+import AddProject from "@/components/project/add-form";
 
 const Page = () => {
   return (
