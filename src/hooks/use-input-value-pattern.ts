@@ -47,7 +47,12 @@ const useInputValuePattern = ({ defaultValue, patterns, delay = 500, skipMount =
         },
     });
 
-    return [debouncedValue, register, error] as const
+    const reset = () => {
+        setMounted(false)
+        setValue("")
+    }
+
+    return [debouncedValue, register, error, reset] as const
 }
 
 export default useInputValuePattern
