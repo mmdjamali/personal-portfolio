@@ -17,22 +17,21 @@ const Actions = ({ onDelete, entity }: Props) => {
   return (
     <DropdownMenu.Root>
       <DropdownMenu.Trigger asChild>
-        <Button className="flex h-9 items-center bg-foreground/5 px-4 text-xs text-foreground transition-colors duration-300 hover:bg-foreground/20">
-          Actions
-          <Icon name="ArrowDownS" className="text-[16px]" />
+        <Button className="mx-auto flex h-9 w-9 items-center justify-center bg-foreground/5 p-0 text-sm text-foreground transition-colors duration-300 hover:bg-foreground/20">
+          <Icon name="MoreLine" className="text-[21px]" />
         </Button>
       </DropdownMenu.Trigger>
 
       <DropdownMenu.Portal>
         <DropdownMenu.Content
           align="end"
-          className="z-[100] mt-1 bg-background py-2 shadow-[0px_0px_30px_0px] shadow-foreground/20"
+          className="z-[100] mt-1 min-w-[200px] bg-background py-2 shadow-[0px_0px_30px_0px] shadow-foreground/20"
         >
           <DeleteButton entity={entity} onDelete={onDelete} />
 
           <Button
             className={cn(
-              "flex w-full cursor-pointer items-center gap-3 p-2 px-4 text-sm capitalize outline-none hover:bg-foreground/5",
+              "flex w-full cursor-pointer items-center justify-start gap-3 p-2 px-4 text-sm capitalize outline-none hover:bg-foreground/5",
             )}
           >
             <Icon name="Pencil" className="text-[18px]" />
@@ -91,12 +90,10 @@ const DeleteButton = ({ onDelete, entity }: DeleteButtonProps) => {
       onClick={handleDelete}
       loading={loading}
       className={cn(
-        "flex w-full cursor-pointer items-center gap-3 p-2 px-4 text-sm capitalize text-error outline-none hover:bg-error/10",
+        "flex w-full cursor-pointer items-center justify-start gap-3 p-2 px-4 text-sm capitalize text-error outline-none hover:bg-error/10",
       )}
     >
-      {!loading ? (
-        <Icon name="DeleteBin" className="text-[18px] text-error" />
-      ) : null}
+      <Icon name="DeleteBin" className="text-[18px] text-error" />
       Delete
     </Button>
   );
