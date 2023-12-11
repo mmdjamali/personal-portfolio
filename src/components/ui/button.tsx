@@ -36,7 +36,7 @@ const Button = React.forwardRef<React.ComponentRef<"button">, ButtonProps>(
     >
       {children}
       {loading ? (
-        <Icon name="Spinner" className="animate-spin text-[21px]" />
+        <Icon name="Spinner" className="ease-emil animate-spin text-[21px]" />
       ) : null}
     </button>
   ),
