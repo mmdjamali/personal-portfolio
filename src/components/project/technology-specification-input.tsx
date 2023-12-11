@@ -10,6 +10,7 @@ import { TechnologyEntity } from "@/types/entity";
 import { ColorKeys, colors } from "@/constants/colors";
 import Image from "next/image";
 import Icon from "../icon";
+import Spinner from "../ui/spinner";
 
 type Props = {
   value?: string[];
@@ -41,15 +42,13 @@ const TechnologySpecificationInput = ({ onChange, value }: Props) => {
     <DropdownMenu.Root>
       <DropdownMenu.Trigger asChild>
         <Button className="inline-flex w-full items-center justify-between border border-foreground/10 px-3 text-start capitalize outline-none">
-          <span className="text-foreground/75">Select</span>
-
-          {/* {(() => {
-            if(!value?.length) return null
-
-
-
-            return <></>
-          })()} */}
+          {isLoading ? (
+            <div className="grid h-full w-full place-items-center">
+              <Spinner />
+            </div>
+          ) : (
+            <span className="text-foreground/75">Select</span>
+          )}
         </Button>
       </DropdownMenu.Trigger>
 
