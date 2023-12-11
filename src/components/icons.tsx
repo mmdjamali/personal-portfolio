@@ -32,6 +32,7 @@ import {
   RiCalendarLine,
   RiDeleteBinLine,
   RiCheckLine,
+  RiMoreLine,
 } from "react-icons/ri";
 import {
   FaDiscord,
@@ -75,6 +76,7 @@ export const Icons = {
   Calender: RiCalendarLine,
   DeleteBin: RiDeleteBinLine,
   Check: RiCheckLine,
+  MoreLine: RiMoreLine,
   Crown: (props: IconBaseProps) => (
     <svg
       viewBox="0 0 455 455"
