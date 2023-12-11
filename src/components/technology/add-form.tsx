@@ -21,7 +21,7 @@ const AddTechnology = () => {
 
   const [icon, setIcon] = useState<string>("");
 
-  const [name, registerName, nameError] = useInputValuePattern({
+  const [name, registerName, nameError, resetName] = useInputValuePattern({
     defaultValue: "",
     patterns: [
       {
@@ -31,7 +31,7 @@ const AddTechnology = () => {
     ],
   });
 
-  const [url, registerUrl, urlError] = useInputValuePattern({
+  const [url, registerUrl, urlError, resetUrl] = useInputValuePattern({
     defaultValue: "",
     patterns: [
       {
@@ -47,7 +47,7 @@ const AddTechnology = () => {
   });
 
   const [usedOften, setUsedOften] = useState(false);
-  const [color, setColor] = useState<ColorKeys>("blue");
+  const [color, setColor] = useState<ColorKeys>("foreground");
 
   const [date, setDate] = useState<DateDataType>({
     month: null,
@@ -101,6 +101,13 @@ const AddTechnology = () => {
         title: "Success",
         description: "Technology added successfully.",
       });
+
+      resetName();
+      resetUrl();
+      setColor("foreground");
+      setDate({ month: null, year: null });
+      setIcon("");
+      setUsedOften(false);
     }
 
     setLoading(false);
