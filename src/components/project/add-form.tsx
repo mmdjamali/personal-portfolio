@@ -16,6 +16,7 @@ import { ColorKeys } from "@/constants/colors";
 import SelectColor from "@/components/shared/input/select-color";
 import toast from "../ui/toast";
 import { useRouter } from "next/navigation";
+import Spinner from "../ui/spinner";
 
 const AddProject = () => {
   const router = useRouter();
@@ -218,7 +219,7 @@ const AddProject = () => {
             />
           </label>
 
-          <span className="text-center text-xs text-foreground/60">
+          <span className="text-center text-sm text-foreground/60">
             {
               "Set the project thumbnail image. Only *.png, *.jpg and *.jpeg image files are accepted"
             }
@@ -240,7 +241,7 @@ const AddProject = () => {
           <div className="relative flex flex-col gap-1">
             {isLoading ? (
               <div className="relative grid h-10 w-full place-items-center border border-foreground/10">
-                <Icon className="animate-spin text-[21px]" name="Spinner" />
+                <Spinner />
               </div>
             ) : (
               <SelectBoolean
@@ -250,7 +251,7 @@ const AddProject = () => {
               />
             )}
 
-            <span className=" text-xs text-foreground/50">
+            <span className=" text-sm text-foreground/50">
               Set if this project should be displayed in showcased projects.
             </span>
           </div>
@@ -262,32 +263,26 @@ const AddProject = () => {
           </div>
 
           <div className="relative flex flex-col gap-1">
-            {isLoading ? (
-              <div className="relative grid h-10 w-full place-items-center border border-foreground/10">
-                <Icon className="animate-spin text-[21px]" name="Spinner" />
-              </div>
-            ) : (
-              <TechnologySpecificationInput
-                value={techs}
-                onChange={(v) =>
-                  setTechs((prev) => {
-                    let clone = structuredClone(prev);
+            <TechnologySpecificationInput
+              value={techs}
+              onChange={(v) =>
+                setTechs((prev) => {
+                  let clone = structuredClone(prev);
 
-                    const idx = clone.indexOf(v);
+                  const idx = clone.indexOf(v);
 
-                    if (idx > -1) {
-                      clone.splice(idx, 1);
-                    } else {
-                      clone.push(v);
-                    }
+                  if (idx > -1) {
+                    clone.splice(idx, 1);
+                  } else {
+                    clone.push(v);
+                  }
 
-                    return clone;
-                  })
-                }
-              />
-            )}
+                  return clone;
+                })
+              }
+            />
 
-            <span className=" text-xs text-foreground/50">
+            <span className=" text-sm text-foreground/50">
               Set if this project should be displayed in showcased projects.
             </span>
           </div>
@@ -300,7 +295,7 @@ const AddProject = () => {
             <SelectColor value={color} onChange={(v) => setColor(v)} />
           </div>
 
-          <span className="mt-1 text-xs text-foreground/50">
+          <span className="mt-1 text-sm text-foreground/50">
             Set a color for this project.
           </span>
         </div>
