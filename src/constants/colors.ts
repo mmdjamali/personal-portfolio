@@ -6,6 +6,7 @@ export const colors = {
         "text/90": "text-green-500/90",
         "text/75": "text-green-500/75",
         "hover:text/75": "hover:text-green-500/75",
+        "border": "border-green-500",
     },
     "rose": {
         "bg": "bg-rose-500",
@@ -14,6 +15,8 @@ export const colors = {
         "text/90": "text-rose-500/90",
         "text/75": "text-rose-500/75",
         "hover:text/75": "hover:text-rose-500/75",
+        "border": "border-rose-500",
+
     },
     "red": {
         "bg": "bg-red-500",
@@ -22,6 +25,8 @@ export const colors = {
         "text/90": "text-red-500/90",
         "text/75": "text-red-500/75",
         "hover:text/75": "hover:text-red-500/75",
+        "border": "border-red-500",
+
     },
     "blue": {
         "bg": "bg-blue-500",
@@ -30,6 +35,8 @@ export const colors = {
         "text/90": "text-blue-500/90",
         "text/75": "text-blue-500/75",
         "hover:text/75": "hover:text-blue-500/75",
+        "border": "border-blue-500",
+
     },
     "violet": {
         "bg": "bg-violet-500",
@@ -38,6 +45,8 @@ export const colors = {
         "text/90": "text-violet-500/90",
         "text/75": "text-violet-500/75",
         "hover:text/75": "hover:text-violet-500/75",
+        "border": "border-violet-500",
+
     },
     "purple": {
         "bg": "bg-purple-500",
@@ -46,6 +55,8 @@ export const colors = {
         "text/90": "text-purple-500/90",
         "text/75": "text-purple-500/75",
         "hover:text/75": "hover:text-purple-500/75",
+        "border": "border-purple-500",
+
     },
     "emerald": {
         "bg": "bg-emerald-500",
@@ -54,6 +65,8 @@ export const colors = {
         "text/90": "text-emerald-500/90",
         "text/75": "text-emerald-500/75",
         "hover:text/75": "hover:text-emerald-500/75",
+        "border": "border-emerald-500",
+
     },
     "cyan": {
         "bg": "bg-cyan-500",
@@ -62,6 +75,8 @@ export const colors = {
         "text/90": "text-cyan-500/90",
         "text/75": "text-cyan-500/75",
         "hover:text/75": "hover:text-cyan-500/75",
+        "border": "border-cyan-500",
+
     },
     "lime": {
         "bg": "bg-lime-500",
@@ -70,6 +85,8 @@ export const colors = {
         "text/90": "text-lime-500/90",
         "text/75": "text-lime-500/75",
         "hover:text/75": "hover:text-lime-500/75",
+        "border": "border-lime-500",
+
     },
     "foreground": {
         "bg": "bg-foreground",
@@ -78,6 +95,8 @@ export const colors = {
         "text/90": "text-foreground/90",
         "text/75": "text-foreground/75",
         "hover:text/75": "hover:text-foreground/75",
+        "border": "border-foreground",
+
     },
 }
 
