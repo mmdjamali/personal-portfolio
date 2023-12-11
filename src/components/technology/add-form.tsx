@@ -7,10 +7,10 @@ import Image from "next/image";
 import { cn, turnFileIntoBase64 } from "@/lib/utils";
 import { useState } from "react";
 import useInputValuePattern from "@/hooks/use-input-value-pattern";
-import UsedOftenInput from "./used-often-input";
+import SelectBoolean from "@/components/shared/input/select-boolean";
 import toast from "../ui/toast";
 import { useCustomFetch } from "@/hooks/use-custom-fetch";
-import SelectColor from "./select-color";
+import SelectColor from "@/components/shared/input/select-color";
 import { ColorKeys } from "@/constants/colors";
 import SelectDate, { DateDataType } from "./select-date";
 
@@ -173,7 +173,7 @@ const AddTechnology = () => {
             />
           </label>
 
-          <span className="text-center text-xs text-foreground/60">
+          <span className="text-center text-sm text-foreground/60">
             {"Set the technology icon. Only *.svg image files are accepted"}
           </span>
         </div>
@@ -191,11 +191,11 @@ const AddTechnology = () => {
           </div>
 
           <div className="relative flex flex-col gap-1">
-            <UsedOftenInput
+            <SelectBoolean
               value={usedOften}
               onChange={(v) => setUsedOften(v)}
             />
-            <span className=" text-xs text-foreground/50">
+            <span className=" text-sm text-foreground/50">
               Set if this project should be displayed in often used
               technologies.
             </span>
@@ -209,7 +209,7 @@ const AddTechnology = () => {
             <SelectColor value={color} onChange={(v) => setColor(v)} />
           </div>
 
-          <span className="mt-1 text-xs text-foreground/50">
+          <span className="mt-1 text-sm text-foreground/50">
             Set a color for this technology if you want to display it as
             recently used.
           </span>
@@ -231,12 +231,12 @@ const AddTechnology = () => {
 
           <div className="relative flex w-full flex-col gap-1">
             <span className="text-sm font-medium text-foreground">
-              Started using at <span className="text-xs text-error">*</span>
+              Started using at <span className="text-sm text-error">*</span>
             </span>
 
             <SelectDate value={date} onChange={(v) => setDate(v)} />
 
-            <span className="text-xs text-foreground/60">
+            <span className="text-sm text-foreground/60">
               Set when did you started using it.
             </span>
           </div>
