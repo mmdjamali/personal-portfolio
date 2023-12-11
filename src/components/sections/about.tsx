@@ -6,8 +6,14 @@ import { motion, useInView } from "framer-motion";
 import NumberUp from "../animation/number-up";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
+import { TechnologyEntity } from "@/types/entity";
+import { colors } from "@/constants/colors";
 
-function About() {
+type Props = {
+  technologies: TechnologyEntity[];
+};
+
+function About({ technologies }: Props) {
   const ref = useRef<HTMLDivElement | null>(null);
   const inView = useInView(ref, {
     once: true,
@@ -196,8 +202,10 @@ function About() {
           ref={ref}
           className="relative mt-8 grid w-full grid-cols-[repeat(auto-fit,minmax(min(280px_,_100%),1fr))] gap-6 lg:px-16"
         >
-          {often_used_tech.map(
-            ({ name, bg, border, color, date, icon }, idx) => {
+          {technologies?.map(
+            ({ name, color: colorName, icon, started_using_at }, idx) => {
+              const color = colors[colorName ?? "foreground"];
+
               return (
                 <motion.div
                   transition={{
@@ -223,31 +231,31 @@ function About() {
                   <div
                     className={cn(
                       "absolute z-[1] h-full w-full opacity-75",
-                      bg,
+                      color["bg"],
                     )}
                   />
 
                   <div
                     className={cn(
                       "relative z-[2] flex h-16 w-full -translate-x-1.5 -translate-y-1.5 items-center overflow-hidden border-[6px] bg-background/95 px-4 py-2",
-                      border,
-                      color,
+                      color["border"],
+                      color["text"],
                     )}
                   >
-                    <div className="flex h-fit w-full items-center gap-4 text-background">
+                    <div className="flex h-fit w-full items-center gap-4">
                       <Image
-                        src={icon}
+                        src={icon ?? ""}
                         height={35}
                         width={35}
                         unoptimized
-                        alt={name}
+                        alt={name ?? "unknown"}
                         className="object-contain"
                       />
 
                       <div
                         className={cn(
                           "flex w-full items-center justify-between overflow-hidden",
-                          color,
+                          color["text"],
                         )}
                       >
                         <span className="overflow-hidden text-ellipsis whitespace-nowrap text-[16px] font-medium">
@@ -262,7 +270,9 @@ function About() {
                             duration={1000}
                             number={Math.ceil(
                               (new Date().getTime() -
-                                new Date(date).getTime()) /
+                                new Date(
+                                  started_using_at ?? new Date(),
+                                ).getTime()) /
                                 2629746000,
                             )}
                           />
