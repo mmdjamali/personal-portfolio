@@ -101,11 +101,11 @@ const Input = React.forwardRef<React.ElementRef<"input">, props>(
         </div>
 
         {error && typeof error === "string" ? (
-          <p className="text-xs text-error">{error}</p>
+          <p className="text-sm text-error">{error}</p>
         ) : null}
 
         {description && typeof description === "string" ? (
-          <p className="text-xs text-foreground/60">{description}</p>
+          <p className="text-sm text-foreground/60">{description}</p>
         ) : null}
       </div>
     );
