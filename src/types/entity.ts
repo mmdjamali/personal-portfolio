@@ -11,3 +11,18 @@ export type TechnologyEntity = {
     created_at?: string,
     updated_at?: string
 }
+
+export type ProjectEntity = {
+    id?: string,
+    name?: string,
+    description?: string,
+    thumbnail?: string,
+    github?: string,
+    live?: string,
+    color?: string,
+    created_at?: string,
+    updated_at?: string,
+    showcase: string,
+    technologies: TechnologyEntity[]
+}
+
