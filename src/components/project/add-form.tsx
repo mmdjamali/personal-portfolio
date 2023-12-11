@@ -144,8 +144,6 @@ const AddProject = () => {
           title: "Success",
           description: "Technology added successfully.",
         });
-
-        router.refresh();
       }
 
       setLoading(false);
