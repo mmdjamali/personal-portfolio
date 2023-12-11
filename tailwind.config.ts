@@ -52,7 +52,9 @@ const config: Config = {
         "accordion-up": "accordion-up 0.2s ease-out",
       },
       transitionTimingFunction: {
-        "back-in-out": "cubic-bezier(0.95, 0.05, 0.795, 0.035)"
+        "back-in-out": "cubic-bezier(0.95, 0.05, 0.795, 0.035)",
+        // ispired by https://github.com/emilkowalski, EASE constant of vaul
+        'emil': 'cubic-bezier(0.32, 0.72, 0, 1)'
       }
     },
   },
