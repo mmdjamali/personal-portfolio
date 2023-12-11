@@ -96,7 +96,7 @@ const Layout = ({ children }: React.PropsWithChildren) => {
                 <DrawerPortal>
                   <DrawerOverlay className="bg-background/50" />
                   <DrawerContent
-                    className="z-[50] w-[280px] bg-background shadow-[0px_0px_30px] shadow-foreground/10"
+                    className="ease-emil z-[50] w-[280px] bg-background shadow-[0px_0px_30px] shadow-foreground/10"
                     side="left"
                   >
                     <div className="flex h-[54px] w-full items-center justify-between gap-2 px-5">
