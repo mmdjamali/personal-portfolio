@@ -2,8 +2,7 @@
 
 import React from "react";
 import { cn } from "@/lib/utils";
-import { tv } from "tailwind-variants";
-import Icon from "../icon";
+import Spinner from "@/components/ui/spinner";
 
 interface ButtonProps extends React.ComponentPropsWithRef<"button"> {
   loading?: boolean;
@@ -35,9 +34,7 @@ const Button = React.forwardRef<React.ComponentRef<"button">, ButtonProps>(
       {...props}
     >
       {children}
-      {loading ? (
-        <Icon name="Spinner" className="ease-emil animate-spin text-[21px]" />
-      ) : null}
+      {loading ? <Spinner /> : null}
     </button>
   ),
 );
