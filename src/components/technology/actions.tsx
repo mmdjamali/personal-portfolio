@@ -7,6 +7,7 @@ import { useCustomFetch } from "@/hooks/use-custom-fetch";
 import { TechnologyEntity } from "@/types/entity";
 import { ApiResponse } from "@/types/api";
 import toast from "../ui/toast";
+import { useRouter } from "next/navigation";
 
 type Props = {
   entity: { id?: string };
@@ -14,6 +15,8 @@ type Props = {
 };
 
 const Actions = ({ onDelete, entity }: Props) => {
+  const router = useRouter();
+
   return (
     <DropdownMenu.Root>
       <DropdownMenu.Trigger asChild>
@@ -30,6 +33,9 @@ const Actions = ({ onDelete, entity }: Props) => {
           <DeleteButton entity={entity} onDelete={onDelete} />
 
           <Button
+            onClick={() => {
+              router.push("/dashboard/technologies/edit/" + entity.id);
+            }}
             className={cn(
               "flex w-full cursor-pointer items-center justify-start gap-3 p-2 px-4 text-sm capitalize outline-none hover:bg-foreground/5",
             )}
