@@ -17,6 +17,7 @@ const fetchOftenUsedTechnologies = async () => {
         headers: {
           "Content-Type": "application/json",
         },
+        cache: "no-cache",
       },
     ).then((res) => res?.json());
 
