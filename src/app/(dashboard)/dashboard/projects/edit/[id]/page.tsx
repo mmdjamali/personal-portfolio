@@ -74,7 +74,7 @@ const Page = ({ params }: Props) => {
       {!loading && data ? (
         <EditProject defaultData={data.project} />
       ) : (
-        <div className="grid h-full w-full place-items-center">
+        <div className="col-span-2 grid h-full w-full place-items-center">
           <div className="flex flex-col items-center justify-center gap-3">
             <Spinner />
 
