@@ -146,7 +146,7 @@ const Page = () => {
           return (
             <td className="px-4 py-3">
               <Actions
-                technology={row.original}
+                entity={{ id: row.original.id }}
                 onDelete={() =>
                   setDeleted((prev) => {
                     if (!row?.original?.id) return prev;
