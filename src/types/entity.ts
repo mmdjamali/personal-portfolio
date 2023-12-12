@@ -19,10 +19,10 @@ export type ProjectEntity = {
     thumbnail?: string,
     github?: string,
     live?: string,
-    color?: string,
+    color?: ColorKeys,
     created_at?: string,
     updated_at?: string,
-    showcase: string,
+    showcase: boolean,
     technologies: TechnologyEntity[]
 }
 
