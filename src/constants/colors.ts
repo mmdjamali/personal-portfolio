@@ -78,6 +78,66 @@ export const colors = {
         "border": "border-cyan-500",
 
     },
+    "orange": {
+        "bg": "bg-orange-500",
+        "bg/90": "bg-orange-500/90",
+        "text": "text-orange-500",
+        "text/90": "text-orange-500/90",
+        "text/75": "text-orange-500/75",
+        "hover:text/75": "hover:text-orange-500/75",
+        "border": "border-orange-500",
+
+    },
+    "amber": {
+        "bg": "bg-amber-500",
+        "bg/90": "bg-amber-500/90",
+        "text": "text-amber-500",
+        "text/90": "text-amber-500/90",
+        "text/75": "text-amber-500/75",
+        "hover:text/75": "hover:text-amber-500/75",
+        "border": "border-amber-500",
+
+    },
+    "fuchsia": {
+        "bg": "bg-fuchsia-500",
+        "bg/90": "bg-fuchsia-500/90",
+        "text": "text-fuchsia-500",
+        "text/90": "text-fuchsia-500/90",
+        "text/75": "text-fuchsia-500/75",
+        "hover:text/75": "hover:text-fuchsia-500/75",
+        "border": "border-fuchsia-500",
+
+    },
+    "pink": {
+        "bg": "bg-pink-500",
+        "bg/90": "bg-pink-500/90",
+        "text": "text-pink-500",
+        "text/90": "text-pink-500/90",
+        "text/75": "text-pink-500/75",
+        "hover:text/75": "hover:text-pink-500/75",
+        "border": "border-pink-500",
+
+    },
+    "indigo": {
+        "bg": "bg-indigo-500",
+        "bg/90": "bg-indigo-500/90",
+        "text": "text-indigo-500",
+        "text/90": "text-indigo-500/90",
+        "text/75": "text-indigo-500/75",
+        "hover:text/75": "hover:text-indigo-500/75",
+        "border": "border-indigo-500",
+
+    },
+    "sky": {
+        "bg": "bg-sky-500",
+        "bg/90": "bg-sky-500/90",
+        "text": "text-sky-500",
+        "text/90": "text-sky-500/90",
+        "text/75": "text-sky-500/75",
+        "hover:text/75": "hover:text-sky-500/75",
+        "border": "border-sky-500",
+
+    },
     "lime": {
         "bg": "bg-lime-500",
         "bg/90": "bg-lime-500/90",
