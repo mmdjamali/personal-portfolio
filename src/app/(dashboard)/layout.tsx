@@ -86,7 +86,7 @@ const Layout = ({ children }: React.PropsWithChildren) => {
 
         <div className="relative z-[1] h-full w-full">
           <div className="sticky top-0 z-[50] bg-background shadow-[0px_4px_30px] shadow-foreground/10">
-            <div className="relative flex h-[54px] w-full items-center justify-between gap-2 px-5">
+            <div className="relative flex h-[54px] w-full items-center justify-between gap-3 px-5">
               <Drawer key={pathname}>
                 <DrawerTrigger asChild>
                   <button className="p-2 text-[21px] text-foreground/75 outline-none transition-all hover:text-foreground lg:hidden">
@@ -96,7 +96,7 @@ const Layout = ({ children }: React.PropsWithChildren) => {
                 <DrawerPortal>
                   <DrawerOverlay className="bg-background/50" />
                   <DrawerContent
-                    className="ease-emil z-[50] w-[280px] bg-background shadow-[0px_0px_30px] shadow-foreground/10"
+                    className="z-[50] w-[280px] bg-background shadow-[0px_0px_30px] shadow-foreground/10 ease-emil"
                     side="left"
                   >
                     <div className="flex h-[54px] w-full items-center justify-between gap-2 px-5">
@@ -128,11 +128,11 @@ const Layout = ({ children }: React.PropsWithChildren) => {
                 </DrawerPortal>
               </Drawer>
 
-              <div className="ml-auto flex items-center justify-center gap-2">
+              <div className="ml-auto flex items-center justify-center gap-3">
                 <ThemeChanger />
 
-                <div className="flex h-10 w-10 bg-foreground/10 text-foreground">
-                  <span className="inline-grid h-full w-full place-items-center">
+                <div className="grid h-10 w-10 place-items-center bg-foreground/10">
+                  <span className="text-lg font-semibold text-foreground">
                     M
                   </span>
                 </div>
