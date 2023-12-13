@@ -144,6 +144,7 @@ const EditProject = ({ defaultData }: Props) => {
         body.showcase = showcase;
       if (github !== (defaultData.github ?? "")) body.github = github;
       if (demo !== defaultData.live) body.live = demo;
+      if (color !== defaultData.color) body.color = color;
 
       if (
         !isArrayEqual(
