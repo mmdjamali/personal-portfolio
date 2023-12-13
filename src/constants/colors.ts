@@ -2,6 +2,7 @@ export const colors = {
     "green": {
         "bg": "bg-green-500",
         "bg/90": "bg-green-500/90",
+        "bg/75": "bg-green-500/75",
         "text": "text-green-500",
         "text/90": "text-green-500/90",
         "text/75": "text-green-500/75",
@@ -11,6 +12,7 @@ export const colors = {
     "rose": {
         "bg": "bg-rose-500",
         "bg/90": "bg-rose-500/90",
+        "bg/75": "bg-rose-500/75",
         "text": "text-rose-500",
         "text/90": "text-rose-500/90",
         "text/75": "text-rose-500/75",
@@ -21,6 +23,7 @@ export const colors = {
     "red": {
         "bg": "bg-red-500",
         "bg/90": "bg-red-500/90",
+        "bg/75": "bg-red-500/75",
         "text": "text-red-500",
         "text/90": "text-red-500/90",
         "text/75": "text-red-500/75",
@@ -31,6 +34,7 @@ export const colors = {
     "blue": {
         "bg": "bg-blue-500",
         "bg/90": "bg-blue-500/90",
+        "bg/75": "bg-blue-500/75",
         "text": "text-blue-500",
         "text/90": "text-blue-500/90",
         "text/75": "text-blue-500/75",
@@ -41,6 +45,7 @@ export const colors = {
     "violet": {
         "bg": "bg-violet-500",
         "bg/90": "bg-violet-500/90",
+        "bg/75": "bg-violet-500/75",
         "text": "text-violet-500",
         "text/90": "text-violet-500/90",
         "text/75": "text-violet-500/75",
@@ -51,6 +56,7 @@ export const colors = {
     "purple": {
         "bg": "bg-purple-500",
         "bg/90": "bg-purple-500/90",
+        "bg/75": "bg-purple-500/75",
         "text": "text-purple-500",
         "text/90": "text-purple-500/90",
         "text/75": "text-purple-500/75",
@@ -61,6 +67,7 @@ export const colors = {
     "emerald": {
         "bg": "bg-emerald-500",
         "bg/90": "bg-emerald-500/90",
+        "bg/75": "bg-emerald-500/75",
         "text": "text-emerald-500",
         "text/90": "text-emerald-500/90",
         "text/75": "text-emerald-500/75",
@@ -71,6 +78,7 @@ export const colors = {
     "cyan": {
         "bg": "bg-cyan-500",
         "bg/90": "bg-cyan-500/90",
+        "bg/75": "bg-cyan-500/75",
         "text": "text-cyan-500",
         "text/90": "text-cyan-500/90",
         "text/75": "text-cyan-500/75",
@@ -81,6 +89,7 @@ export const colors = {
     "orange": {
         "bg": "bg-orange-500",
         "bg/90": "bg-orange-500/90",
+        "bg/75": "bg-orange-500/75",
         "text": "text-orange-500",
         "text/90": "text-orange-500/90",
         "text/75": "text-orange-500/75",
@@ -91,6 +100,7 @@ export const colors = {
     "amber": {
         "bg": "bg-amber-500",
         "bg/90": "bg-amber-500/90",
+        "bg/75": "bg-amber-500/75",
         "text": "text-amber-500",
         "text/90": "text-amber-500/90",
         "text/75": "text-amber-500/75",
@@ -101,6 +111,7 @@ export const colors = {
     "fuchsia": {
         "bg": "bg-fuchsia-500",
         "bg/90": "bg-fuchsia-500/90",
+        "bg/75": "bg-fuchsia-500/75",
         "text": "text-fuchsia-500",
         "text/90": "text-fuchsia-500/90",
         "text/75": "text-fuchsia-500/75",
@@ -111,6 +122,7 @@ export const colors = {
     "pink": {
         "bg": "bg-pink-500",
         "bg/90": "bg-pink-500/90",
+        "bg/75": "bg-pink-500/75",
         "text": "text-pink-500",
         "text/90": "text-pink-500/90",
         "text/75": "text-pink-500/75",
@@ -121,6 +133,7 @@ export const colors = {
     "indigo": {
         "bg": "bg-indigo-500",
         "bg/90": "bg-indigo-500/90",
+        "bg/75": "bg-indigo-500/75",
         "text": "text-indigo-500",
         "text/90": "text-indigo-500/90",
         "text/75": "text-indigo-500/75",
@@ -131,6 +144,7 @@ export const colors = {
     "sky": {
         "bg": "bg-sky-500",
         "bg/90": "bg-sky-500/90",
+        "bg/75": "bg-sky-500/75",
         "text": "text-sky-500",
         "text/90": "text-sky-500/90",
         "text/75": "text-sky-500/75",
@@ -141,6 +155,7 @@ export const colors = {
     "lime": {
         "bg": "bg-lime-500",
         "bg/90": "bg-lime-500/90",
+        "bg/75": "bg-lime-500/75",
         "text": "text-lime-500",
         "text/90": "text-lime-500/90",
         "text/75": "text-lime-500/75",
@@ -151,6 +166,7 @@ export const colors = {
     "foreground": {
         "bg": "bg-foreground",
         "bg/90": "bg-foreground/90",
+        "bg/75": "bg-foreground/75",
         "text": "text-foreground",
         "text/90": "text-foreground/90",
         "text/75": "text-foreground/75",
