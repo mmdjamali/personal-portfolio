@@ -17,7 +17,9 @@ const fetchOftenUsedTechnologies = async () => {
         headers: {
           "Content-Type": "application/json",
         },
-        cache: "no-cache",
+        next: {
+          revalidate: process.env.NODE_ENV === "development" ? 0 : 3600,
+        },
       },
     ).then((res) => res?.json());
 
@@ -44,7 +46,9 @@ const fetchShowcaseProjects = async () => {
         headers: {
           "Content-Type": "application/json",
         },
-        cache: "no-cache",
+        next: {
+          revalidate: process.env.NODE_ENV === "development" ? 0 : 3600,
+        },
       },
     ).then((res) => res?.json());
 
