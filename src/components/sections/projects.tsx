@@ -6,8 +6,14 @@ import Icon from "../icon";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
+import { ProjectEntity } from "@/types/entity";
+import { colors } from "@/constants/colors";
 
-function Projects() {
+type Props = {
+  projects: ProjectEntity[];
+};
+
+function Projects({ projects }: Props) {
   return (
     <div className="relative flex w-full items-start justify-start py-32 sm:px-12">
       <section
@@ -109,215 +115,93 @@ function Projects() {
             margin: "0px 0px -25% 0px",
           }}
         >
-          <div
-            className={`relative flex flex-col items-center justify-between gap-6 lg:flex-row lg:gap-12`}
-          >
-            <div className={`relative flex w-full`}>
-              <motion.div
-                initial={{
-                  y: 0,
-                  x: 0,
-                }}
-                whileInView={{
-                  y: -6,
-                  x: -6,
-                }}
-                viewport={{
-                  margin: "0px 0px -50% 0px",
-                  once: true,
-                }}
-                className={cn(
-                  "relative z-[1] flex aspect-video w-full p-2",
-                  "bg-blue-500",
-                )}
-              >
-                <div className="relative h-full w-full">
-                  <Image
-                    unoptimized
-                    className="object-cover"
-                    fill={true}
-                    src={
-                      "https://mmdjamali.ir/_next/image?url=%2Fimages%2FBavard.png&w=1920&q=75"
-                    }
-                    alt={""}
-                  />
-                </div>
-              </motion.div>
+          {projects.map(
+            ({ thumbnail, name, description, live, technologies }, idx) => {
+              const color = colors[colorForIndex[idx] ?? "foreground"];
 
-              <span
-                className={cn(
-                  `absolute bottom-0 right-0 z-[0] h-full w-full`,
-                  "bg-blue-500/75",
-                )}
-              />
-            </div>
-
-            <div className="flex w-full flex-col gap-3 text-foreground">
-              <h3 className="text-[21px] font-semibold">
-                Bavard - twitter clone
-              </h3>
-
-              <p className="text-foreground/75">testing</p>
-
-              <div className="flex gap-2 font-medium">
-                <Icon name="Circle" className="h-[21px]" />
-              </div>
-
-              <div className="flex gap-2">
-                <a
-                  href="https://bavard.vercel.app"
-                  className="group relative flex w-fit cursor-pointer items-center justify-center gap-2 bg-foreground px-4 py-2 font-medium text-background transition-colors hover:bg-blue-500"
+              return (
+                <div
+                  key={idx}
+                  className={cn(
+                    `relative flex flex-col items-center justify-between gap-6 lg:gap-12`,
+                    idx % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse",
+                  )}
                 >
-                  <span>Try it out</span>
+                  <div className={`relative flex w-full`}>
+                    <motion.div
+                      initial={{
+                        y: 0,
+                        x: 0,
+                      }}
+                      whileInView={{
+                        y: -6,
+                        x: -6,
+                      }}
+                      viewport={{
+                        margin: "0px 0px -50% 0px",
+                        once: true,
+                      }}
+                      className={cn(
+                        "relative z-[1] flex aspect-video w-full p-2",
+                        color["bg"],
+                      )}
+                    >
+                      <div className="relative h-full w-full">
+                        <Image
+                          unoptimized
+                          className="object-cover"
+                          fill={true}
+                          src={thumbnail ?? ""}
+                          alt={""}
+                        />
+                      </div>
+                    </motion.div>
 
-                  <Icon
-                    name="Right"
-                    className="text-[18px] transition-transform duration-500 group-hover:-rotate-45"
-                  />
-                </a>
-              </div>
-            </div>
-          </div>
+                    <span
+                      className={cn(
+                        `absolute bottom-0 right-0 z-[0] h-full w-full`,
+                        color["bg/75"],
+                      )}
+                    />
+                  </div>
 
-          <div
-            className={`relative flex flex-col items-center justify-between gap-6 lg:flex-row-reverse lg:gap-12`}
-          >
-            <div className={`relative flex w-full`}>
-              <motion.div
-                initial={{
-                  y: 0,
-                  x: 0,
-                }}
-                whileInView={{
-                  y: -6,
-                  x: -6,
-                }}
-                viewport={{
-                  margin: "0px 0px -50% 0px",
-                  once: true,
-                }}
-                className={cn(
-                  "relative z-[1] flex aspect-video w-full p-2",
-                  "bg-red-500",
-                )}
-              >
-                <div className="relative h-full w-full">
-                  <Image
-                    unoptimized
-                    className="object-cover"
-                    fill={true}
-                    src={
-                      "https://mmdjamali.ir/_next/image?url=%2Fimages%2FBavard.png&w=1920&q=75"
-                    }
-                    alt={""}
-                  />
+                  <div className="flex w-full flex-col gap-4 text-foreground">
+                    <h3 className="text-[21px] font-semibold">{name ?? ""}</h3>
+
+                    <p className="text-foreground/75">{description ?? ""}</p>
+
+                    <div className="flex gap-3 font-medium">
+                      {technologies?.map(({ icon, id, name }) => {
+                        return (
+                          <Image
+                            height={21}
+                            width={21}
+                            alt={name ?? ""}
+                            src={icon ?? ""}
+                            key={id}
+                          />
+                        );
+                      })}
+                    </div>
+
+                    <div className="flex gap-2">
+                      <a
+                        href={live ?? ""}
+                        className="group relative flex w-fit cursor-pointer items-center justify-center gap-2 bg-foreground px-4 py-2 font-medium text-background transition-colors hover:bg-blue-500"
+                      >
+                        <span>Try it out</span>
+
+                        <Icon
+                          name="Right"
+                          className="text-[18px] transition-transform duration-500 group-hover:-rotate-45"
+                        />
+                      </a>
+                    </div>
+                  </div>
                 </div>
-              </motion.div>
-
-              <span
-                className={cn(
-                  `absolute bottom-0 right-0 z-[0] h-full w-full`,
-                  "bg-red-500/75",
-                )}
-              />
-            </div>
-
-            <div className="flex w-full flex-col gap-3 text-foreground">
-              <h3 className="text-[21px] font-semibold">
-                Bavard - twitter clone
-              </h3>
-
-              <p className="text-foreground/75">testing</p>
-
-              <div className="flex gap-2 font-medium">
-                <Icon name="Circle" className="h-[21px]" />
-              </div>
-
-              <div className="flex gap-2">
-                <a
-                  href="https://bavard.vercel.app"
-                  className="group relative flex w-fit cursor-pointer items-center justify-center gap-2 bg-foreground px-4 py-2 text-background transition-colors hover:bg-red-500"
-                >
-                  <span>Try it out</span>
-
-                  <Icon
-                    name="Right"
-                    className="text-[18px] transition-transform duration-500 group-hover:-rotate-45"
-                  />
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <div
-            className={`relative flex flex-col items-center justify-between gap-6 lg:flex-row lg:gap-12`}
-          >
-            <div className={`relative flex w-full`}>
-              <motion.div
-                initial={{
-                  y: 0,
-                  x: 0,
-                }}
-                whileInView={{
-                  y: -6,
-                  x: -6,
-                }}
-                viewport={{
-                  margin: "0px 0px -50% 0px",
-                  once: true,
-                }}
-                className={cn(
-                  "relative z-[1] flex aspect-video w-full p-2",
-                  "bg-green-500",
-                )}
-              >
-                <div className="relative h-full w-full">
-                  <Image
-                    unoptimized
-                    className="object-cover"
-                    fill={true}
-                    src={
-                      "https://mmdjamali.ir/_next/image?url=%2Fimages%2FBavard.png&w=1920&q=75"
-                    }
-                    alt={""}
-                  />
-                </div>
-              </motion.div>
-
-              <span
-                className={cn(
-                  `absolute bottom-0 right-0 z-[0] h-full w-full`,
-                  "bg-green-500/75",
-                )}
-              />
-            </div>
-
-            <div className="flex w-full flex-col gap-3 text-foreground">
-              <h3 className="text-[21px] font-semibold">
-                Bavard - twitter clone
-              </h3>
-
-              <p className="text-foreground/75">testing</p>
-
-              <div className="flex gap-2 font-medium">
-                <Icon name="Circle" className="h-[21px]" />
-              </div>
-
-              <div className="flex gap-2">
-                <a
-                  href="https://bavard.vercel.app"
-                  className="group relative flex w-fit cursor-pointer items-center justify-center gap-2 bg-foreground px-4 py-2 text-background transition-colors hover:bg-green-500"
-                >
-                  <span>Try it out</span>
-
-                  <Icon
-                    name="Right"
-                    className="text-[18px] transition-transform duration-500 group-hover:-rotate-45"
-                  />
-                </a>
-              </div>
-            </div>
-          </div>
+              );
+            },
+          )}
         </motion.div>
       </section>
     </div>
@@ -325,3 +209,5 @@ function Projects() {
 }
 
 export default Projects;
+
+const colorForIndex = ["blue", "red", "green"] as const;
