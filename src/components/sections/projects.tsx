@@ -187,7 +187,10 @@ function Projects({ projects }: Props) {
                     <div className="flex gap-2">
                       <a
                         href={live ?? ""}
-                        className="group relative flex w-fit cursor-pointer items-center justify-center gap-2 bg-foreground px-4 py-2 font-medium text-background transition-colors hover:bg-blue-500"
+                        className={cn(
+                          "group relative flex w-fit cursor-pointer items-center justify-center gap-2 bg-foreground px-4 py-2 font-medium text-background transition-colors",
+                          color["hover:bg"],
+                        )}
                       >
                         <span>Try it out</span>
 
