@@ -1,4 +1,5 @@
 import { ColorKeys } from "@/constants/colors"
+import { SocialsType } from "."
 
 export type TechnologyEntity = {
     id?: string,
@@ -26,3 +27,10 @@ export type ProjectEntity = {
     technologies: TechnologyEntity[]
 }
 
+export type SocialsEntity = {
+    id?: string,
+    platform?: SocialsType,
+    url?: string,
+    updated_at?: string,
+    created_at?: string
+}
