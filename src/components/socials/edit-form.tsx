@@ -133,11 +133,13 @@ const EditSocials = ({ defaultData }: Props) => {
     if ((defaultData.Telegram.url ?? "") !== telegram)
       body.push({ platform: "Telegram", url: telegram });
 
-    if (!body.length)
+    if (!body.length) {
+      setLoading(false);
       return toast({
         title: "Nothing has been changed.",
         varinat: "error",
       });
+    }
 
     const res: { success: boolean } = await fetch("/api/socials", {
       method: "PUT",
