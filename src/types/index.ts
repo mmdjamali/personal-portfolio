@@ -9,3 +9,5 @@ export interface NavItem {
   external?: boolean;
   //   icon?: IconKeyType;
 }
+
+export type SocialsType = "TwitterX" | "Github" | "Telegram" | "Discord";
