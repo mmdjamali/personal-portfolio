@@ -63,6 +63,17 @@ const Layout = ({ children }: React.PropsWithChildren) => {
         },
       ],
     },
+    {
+      title: "OTHER",
+      items: [
+        {
+          path: "/dashboard/socials",
+          icon: "BookLine",
+          iconFill: "BookFill",
+          title: "Socials",
+        },
+      ],
+    },
   ] satisfies RouteType[];
   return (
     <div className="block">
