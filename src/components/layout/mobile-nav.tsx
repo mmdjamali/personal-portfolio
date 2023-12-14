@@ -10,16 +10,17 @@ import {
   DrawerTrigger,
 } from "@/components/ui/drawer";
 import Icon from "../icon";
-import { socials } from "@/config/socials";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { useEffect, useState } from "react";
+import { SocialsEntity } from "@/types/entity";
 
 type Props = {
   items: NavItem[];
+  socials: SocialsEntity[];
 };
 
-const MobileNav = ({ items }: Props) => {
+const MobileNav = ({ items, socials }: Props) => {
   const [position, setPosition] = useState("intro");
 
   useEffect(() => {
@@ -90,13 +91,13 @@ const MobileNav = ({ items }: Props) => {
             </nav>
 
             <div className="flex items-center justify-center gap-2 px-6 py-4">
-              {socials.map(({ icon, name, url }, idx) => (
+              {socials?.map(({ url, platform }, idx) => (
                 <Link
-                  href={url}
+                  href={url ?? ""}
                   className="pointer-events-auto z-[50] p-2 text-foreground/75 transition-colors hover:text-foreground"
                   key={idx}
                 >
-                  <Icon className="text-[21px]" name={icon} />
+                  <Icon className="text-[21px]" name={platform} />
                 </Link>
               ))}
             </div>

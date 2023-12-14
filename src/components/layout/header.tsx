@@ -10,8 +10,13 @@ import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { useEffect, useState } from "react";
 import MobileNav from "./mobile-nav";
+import { SocialsEntity } from "@/types/entity";
 
-const Header = () => {
+type Props = {
+  socials: SocialsEntity[];
+};
+
+const Header = ({ socials }: Props) => {
   const [show, setShow] = useState<boolean>(true);
   const [showBorder, setShowBorder] = useState<boolean>(false);
 
@@ -85,7 +90,7 @@ const Header = () => {
       )}
     >
       <header className="relative mx-auto flex h-[54px] w-full max-w-[1300px] items-center justify-between  px-6 md:px-24">
-        <MobileNav items={siteConfig.items} />
+        <MobileNav socials={socials} items={siteConfig.items} />
 
         <motion.div
           className=""
