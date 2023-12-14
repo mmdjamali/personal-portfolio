@@ -78,9 +78,9 @@ const Layout = ({ children }: React.PropsWithChildren) => {
   return (
     <div className="block">
       <div className="relative z-[2] grid lg:grid-cols-[280px_,_1fr]">
-        <div className="sticky top-0 z-[51] hidden h-screen w-fit flex-col border-r border-foreground/10 bg-background md:w-full lg:flex">
+        <div className="sticky top-0 z-[51] hidden h-screen w-fit flex-col border-r border-foreground/10 bg-background md:w-full lg:block">
           <div className="sticky top-0 z-[50]">
-            <div className="flex h-[54px] w-full items-center gap-2 px-5">
+            <div className="sticky top-0 flex h-[54px] w-full items-center gap-2 px-5">
               <Icon name="Crown" className="h-[28px] text-foreground" />
 
               <span className="text-base-content hidden font-bold md:inline">
@@ -91,7 +91,9 @@ const Layout = ({ children }: React.PropsWithChildren) => {
 
           <DashboardNav
             routes={routes}
-            className={"h-[calc(100svh_-_56px)] w-fit gap-1 px-5 md:w-full"}
+            className={
+              "max-h-[calc(100svh_-_56px)] w-fit gap-1 overflow-y-auto px-5 md:w-full"
+            }
           />
         </div>
 
